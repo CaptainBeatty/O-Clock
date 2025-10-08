@@ -25,6 +25,7 @@ Avant tout achat, il est essentiel de bien cerner les besoins réels pour évite
    → Par exemple, clavier incurvé, souris verticale, support réglable.
 9. Faut-il privilégier des écrans basse consommation ?
 10. Souhaitez-vous une uniformité sur tout le parc ou des équipements adaptés par service ?
+11. La deadline : Le délais pour la mise en place du materiel?
 
 
 2. Recommandations de matériel
