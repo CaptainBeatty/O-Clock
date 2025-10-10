@@ -102,11 +102,5 @@ Cela permet de :
 
 ---
 
-## ✍️ Auteur
 
-**Julien Grange**  
-Formation : Administrateur Systèmes & Réseaux / Cybersécurité  
-Promotion O’Clock – 2025  
-
----
 
