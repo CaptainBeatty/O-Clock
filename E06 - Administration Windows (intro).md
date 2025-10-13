@@ -1,7 +1,7 @@
 # 🧠 TP – Installation de Debian 13 sous VirtualBox
 
 ## 🎯 Objectifs
-- Installer **Debian 13 (netinst)** dans une machine virtuelle VirtualBox.  
+- Installer **Debian 13** dans une machine virtuelle VirtualBox.  
 - Configurer les **partitions**, **ajouter un utilisateur**, et **installer les Additions invitées**.  
 - Installer quelques logiciels essentiels : **VLC**, **7-Zip**, **Okular**.
 
@@ -52,3 +52,20 @@ Pour simuler un environnement multi-utilisateur, j’ai ajouté un second compte
 ```bash
 adduser user
 ```
+## 🧰 6. Installation de logiciels
+
+Enfin, j’ai installé trois outils pratiques pour un usage courant :
+
+```bash
+apt install vlc p7zip-full okular
+```
+
+## ✅ Conclusion
+
+La machine virtuelle Debian 13 est désormais fonctionnelle avec :
+
+Les Additions invitées VirtualBox actives,
+
+Un nouvel utilisateur opérationnel,
+
+Des applications de base installées.
