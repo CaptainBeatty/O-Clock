@@ -57,8 +57,9 @@ Une fois le CD monté, l’installation a été effectuée avec les commandes su
 sudo apt install build-essential dkms linux-headers-$(uname -r)
 sudo mount /dev/cdrom /mnt
 sudo /mnt/VBoxLinuxAdditions.run
-![capture win11](./captures/vbox_additions_install.png)
 ```
+![capture win11](./captures/vbox_additions_install.png)
+
 
 ---
 
