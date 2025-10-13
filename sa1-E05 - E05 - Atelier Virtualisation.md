@@ -18,19 +18,6 @@ Ce travail pratique avait pour but de créer et de configurer plusieurs machines
 
 ---
 
-### ➕ Installation des VBox Guest Additions
-Pour améliorer l’intégration de la machine virtuelle (redimensionnement automatique, presse-papier partagé, etc.), les **VBox Additions** ont été installées via le CD-ROM inséré depuis le menu VirtualBox :  
-**Périphériques → Insérer l’image CD des Additions invité...**
-
-Une fois le CD monté, l’installation a été effectuée avec les commandes suivantes :
-
-```bash
-sudo apt install build-essential dkms linux-headers-$(uname -r)
-sudo mount /dev/cdrom /mnt
-sudo /mnt/VBoxLinuxAdditions.run
-
----
-
 ## 🪟 Installation de Windows 10
 - Création d’une VM avec 2 vCPU, 4 Go RAM, 40 Go de disque dynamique.  
 - Installation réalisée à partir de l’ISO officielle de Windows 10.  
@@ -59,6 +46,19 @@ sudo /mnt/VBoxLinuxAdditions.run
 - L’interface réseau NAT assure l’accès Internet, le Host-Only permet les échanges locaux.
 
 ![capture ubuntu](./captures/ubuntu.png)
+
+### ➕ Installation des VBox Guest Additions
+Pour améliorer l’intégration de la machine virtuelle (redimensionnement automatique, presse-papier partagé, etc.), les **VBox Additions** ont été installées via le CD-ROM inséré depuis le menu VirtualBox :  
+**Périphériques → Insérer l’image CD des Additions invité...**
+
+Une fois le CD monté, l’installation a été effectuée avec les commandes suivantes :
+
+```bash
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+sudo mount /dev/cdrom /mnt
+sudo /mnt/VBoxLinuxAdditions.run
+![capture win11](./captures/vbox_additions_install.png)
+```
 
 ---
 
