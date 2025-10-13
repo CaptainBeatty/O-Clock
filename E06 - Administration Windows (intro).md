@@ -28,7 +28,9 @@ Au lancement, j’ai sélectionné l’option **Graphical install**, permettant 
 J’ai opté pour un partitionnement **assisté**, en utilisant **tout le disque** avec **LVM** et une **partition /home séparée**.
 
 ![Partitionnement assisté](captures/3partitonnement%20du%20disque.png)
+<br><br>
 ![Choix du schéma de partition](captures/4partitonnement%20du%20disque2.png)
+<br><br>
 ![Validation des partitions](captures/5partitonnement%20du%20disque3.png)
 
 ---
