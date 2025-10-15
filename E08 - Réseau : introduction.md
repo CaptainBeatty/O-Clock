@@ -1,4 +1,4 @@
-# 🖧 Mon réseau domestique
+# 🖧 Réseau domestique
 
 Ce document présente le schéma d'un réseau informatique personnel, réalisé dans le cadre du challenge **Réseau – Introduction** de la formation O’Clock (Aldébaran – Administrateur Systèmes & Cybersécurité).
 
@@ -43,7 +43,7 @@ Il se compose des éléments suivants :
 ## 🧠 Objectif pédagogique
 
 Ce synoptique permet de :
-- Visualiser la structure logique du réseau domestique.  
+- Visualiser la structure logique d'un réseau domestique.  
 - Comprendre le rôle et la hiérarchie des différents composants.  
 - Servir de base pour les prochains exercices de configuration ou de sécurisation réseau.
 
