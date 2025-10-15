@@ -49,4 +49,4 @@ Ce synoptique permet de :
 
 ---
 
-*Réalisé par **Julien Grange** — Formation O’Clock, parcours Administrateur Systèmes & Cybersécurité.*
+*Réalisé par **CaptainBeatty** — Formation O’Clock, parcours Administrateur Systèmes & Cybersécurité.*
