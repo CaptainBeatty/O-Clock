@@ -60,20 +60,7 @@ Le 3ᵉ octet de l’adresse (5) se situe dans le bloc 0–127.
 
 ---
 
-## Exercice 5 — 10.7.200.1 /17
-**Remarque :**
-Même masque `255.255.128.0`.  
-Le 3ᵉ octet (200) appartient au bloc 128–255 → réseau 10.7.128.0.
-
-**Résultats :**
-- Réseau : 10.7.128.0  
-- Broadcast : 10.7.255.255  
-- Hôtes utilisables : 32 766  
-- Plage d’hôtes : 10.7.128.1 → 10.7.255.254  
-
----
-
-## Exercice 6 — 10.42.0.82 /12
+## Exercice 5 — 10.42.0.82 /12
 **Remarque :**
 12 bits à 1 : `11111111.11110000.00000000.00000000` → masque `255.240.0.0`.  
 Nombre magique = 256 − 240 = 16.  
@@ -84,19 +71,6 @@ Octet visé : le 2ᵉ (42) → multiple inférieur = 32.
 - Broadcast : 10.47.255.255  
 - Hôtes utilisables : 2^(32 − 12) − 2 = 1 048 574  
 - Plage d’hôtes : 10.32.0.1 → 10.47.255.254  
-
----
-
-## Exercice 7 — 172.18.45.220 /19
-**Remarque :**
-Masque `/19` = `255.255.224.0` → nombre magique 32.  
-Le 3ᵉ octet (45) se situe dans le bloc 32–63.
-
-**Résultats :**
-- Réseau : 172.18.32.0  
-- Broadcast : 172.18.63.255  
-- Hôtes utilisables : 2^(32 − 19) − 2 = 8190  
-- Plage d’hôtes : 172.18.32.1 → 172.18.63.254  
 
 ---
 
