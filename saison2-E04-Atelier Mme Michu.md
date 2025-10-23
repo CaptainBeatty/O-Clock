@@ -148,4 +148,42 @@ Cette étape confirme la bonne intégrité du système et la stabilité du stock
 Les disques ont été contrôlés et réparés, garantissant un fonctionnement durable pour la machine de Mme Michu.  
 La procédure s’achève avec un système sain et des volumes pleinement opérationnels.
 
+**Étape 4 : Restauration d’une version antérieure pour récupération de données**
+
+---
+
+## 🎯 Objectif
+
+Cette dernière étape vise à **récupérer un répertoire d’images perdu** en restaurant une version antérieure du dossier utilisateur.  
+L’objectif est de vérifier la fiabilité du mécanisme de **récupération de versions précédentes** intégré à Windows.
+
+---
+
+## ⚙️ Déroulement du TP
+
+Depuis le dossier **Images**, l’option *Versions précédentes* est ouverte dans les propriétés du répertoire.  
+Trois points de restauration sont disponibles : ils correspondent à des sauvegardes automatiques créées par le système lors d’opérations antérieures.  
+L’un d’eux est sélectionné pour visualiser le contenu sauvegardé, notamment le dossier **York**, contenant les images à récupérer (`42-restauration_dossier_york.png`).
+
+La restauration est ensuite lancée depuis cette version sauvegardée (`43-restauration_ancienne_version.png`), permettant de remettre en place l’ensemble des fichiers présents lors de la date choisie.  
+L’opération se termine avec succès, les images réapparaissent dans le dossier initial.
+
+---
+
+## 🖼️ Captures d’écran
+
+| Étape | Capture |
+|:------|:--------|
+| Sélection d’une version précédente | ![Restauration dossier York](captures/42-restauration_dossier_york.png) |
+| Lancement de la restauration | ![Restauration ancienne version](captures/43-restauration_ancienne_version.png) |
+
+---
+
+## 🧾 Bilan de l’étape 4
+
+Grâce à la restauration des versions précédentes, les fichiers perdus ont été récupérés sans recourir à un outil tiers.  
+Cette étape valide la **fiabilité du système de sauvegarde Windows** et clôt avec succès la remise en service complète de la machine de Mme Michu.
+
+---
+
 ---
