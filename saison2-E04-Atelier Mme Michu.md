@@ -108,3 +108,44 @@ Les vérifications de sécurité sont satisfaisantes et les performances ont ét
 Cette étape clôt la phase de dépannage et ouvre la voie à un contrôle global du système et de sa maintenance à long terme.
 
 ---
+
+**Étape 3 : Vérification et réparation approfondie des disques**
+
+---
+
+## 🎯 Objectif
+
+L’objectif de cette troisième étape est d’effectuer une **analyse complète des disques** de la machine de Mme Michu, afin de vérifier leur intégrité après les réparations précédentes et de corriger les éventuelles erreurs restantes.
+
+---
+
+## ⚙️ Déroulement du TP
+
+La machine est d’abord configurée pour **reconnecter le disque secondaire (E:)**, utilisé comme support de données utilisateur (`38-connection disque E.png`).  
+Une vérification du volume est immédiatement lancée via la commande `chkdsk`, afin d’évaluer son état (`39-chkdsk.png`).
+
+L’analyse montre plusieurs secteurs endommagés, que `chkdsk` tente de corriger automatiquement.  
+Une vérification supplémentaire du disque E: est effectuée directement via l’interface Oracle VirtualBox (`40-chkdsk_disk E - Oracle VirtualBox.png`), confirmant que les opérations de réparation sont bien en cours.
+
+Pour finaliser le processus, un **redémarrage complet de la machine** est initié, permettant à Windows d’exécuter un `chkdsk` sur la partition système C: avant le chargement du bureau (`41-redemmarage pour checkdisk c.png`).
+
+---
+
+## 🖼️ Captures d’écran
+
+| Étape | Capture |
+|:------|:--------|
+| Connexion du disque E: | ![Connexion disque E](captures/38-connection disque E.png) |
+| Vérification du volume | ![CHKDSK E:](captures/39-chkdsk.png) |
+| Analyse via VirtualBox | ![CHKDSK via VirtualBox](captures/40-chkdsk_disk E - Oracle VirtualBox.png) |
+| Redémarrage et vérification du disque C: | ![CHKDSK au démarrage](captures/41-redemmarage pour checkdisk c.png) |
+
+---
+
+## 🧾 Bilan de l’étape 3
+
+Cette étape confirme la bonne intégrité du système et la stabilité du stockage.  
+Les disques ont été contrôlés et réparés, garantissant un fonctionnement durable pour la machine de Mme Michu.  
+La procédure s’achève avec un système sain et des volumes pleinement opérationnels.
+
+---
