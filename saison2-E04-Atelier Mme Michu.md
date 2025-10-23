@@ -54,6 +54,12 @@ Toutes les étapes sont documentées ci-dessous :
 | Vérifications de disque | ![CHKDSK E](captures/24-chkdsk_E.png) / ![CHKDSK C](captures/25-chkdsk_C.png) |
 | Réparation du secteur de démarrage | ![Bootsect](captures/26-bootsect_cmd.png) |
 | Snapshot avant redémarrage | ![Snapshot final](captures/27-snap_before_reboot.png) |
+| Renomage lecteur C: | ![Snapshot final](captures/28-C_reconfig.png) |
+| Création secteur de démarrage: | ![Snapshot final](captures/29-create_boot_files.png) |
+| Ejection de l'iso et redémarrage VM: | ![Snapshot final](captures/30-remove_iso.png) |
+| On bute sur une erreur Winload: | ![Snapshot final](captures/31-winload_error.png) |
+| On reconstruit: | ![Snapshot final](captures/32-to_rebuild_winload.png) |
+| Windows est fonctionnel: | ![Snapshot final](captures/33-check_tasks.png) |
 
 ---
 
