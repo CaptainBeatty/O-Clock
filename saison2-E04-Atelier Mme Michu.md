@@ -135,7 +135,7 @@ Pour finaliser le processus, un **redémarrage complet de la machine** est initi
 
 | Étape | Capture |
 |:------|:--------|
-| Connexion du disque E: | ![Connexion disque E](captures/38-connection disque E.png) |
+| Connexion du disque E: | ![Connexion disque E](captures/38-connection_disque_E.png) |
 | Vérification du volume | ![CHKDSK E:](captures/39-chkdsk.png) |
 | Analyse via VirtualBox | ![CHKDSK via VirtualBox](captures/40-chkdsk_disk E - Oracle VirtualBox.png) |
 | Redémarrage et vérification du disque C: | ![CHKDSK au démarrage](captures/41-redemmarage pour checkdisk c.png) |
