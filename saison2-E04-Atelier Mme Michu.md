@@ -42,3 +42,16 @@ Les volumes système sont identifiés :
 ```cmd
 bootrec /fixmbr
 
+📸 Capture : 19-diskpart_sequence.png
+
+On repère la partition contenant Windows (ici, la partition E:).
+
+17️⃣ Vérification du contenu du disque
+
+Avant d’agir sur le secteur de démarrage, un rapide listage permet de confirmer la présence du répertoire Windows sur le volume identifié.
+
+E:
+dir
+
+📸 Capture : 20-to_repair.png
+
