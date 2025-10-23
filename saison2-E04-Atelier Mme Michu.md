@@ -12,27 +12,27 @@ Le travail a été réalisé dans un environnement **VirtualBox**, à partir d�
 
 ## ⚙️ Déroulement du TP
 
-Après le téléchargement de la machine virtuelle (`1-download_VM.png`), celle-ci est importée dans VirtualBox puis démarrée (`2-import_VM_start.png`).  
+Après le téléchargement de la machine virtuelle, celle-ci est importée dans VirtualBox puis démarrée.  
 Dès le lancement, le système affiche un échec au démarrage, indiquant la nécessité d’une réparation du boot.
 
-L’assistant de récupération est ouvert via les outils de démarrage avancé (`10-choose_repair.png` à `12-choose_restart_tools.png`).  
-Plusieurs essais de réparation automatique sont effectués, sans succès (`13-security_snapshot.png` à `16-it_doesnt_work.png`).
+L’assistant de récupération est ouvert via les outils de démarrage avancé.  
+Plusieurs essais de réparation automatique sont effectués, sans succès.
 
 ---
 
 ## 🧰 Intervention en mode console
 
-Un accès à la console de récupération est alors lancé (`17-return_to_the_prompt.png` et `18-into_terminal_X.png`).  
+Un accès à la console de récupération est alors lancé.  
 Les commandes de diagnostic disque sont testées :
 
-- `diskpart` pour identifier les partitions (`19-diskpart_sequence.png`),  
-- puis `chkdsk E:` et `chkdsk C:` pour vérifier les volumes et tenter des corrections (`24-chkdsk_E.png`, `25-chkdsk_C.png`).
+- `diskpart` pour identifier les partitions,  
+- puis `chkdsk E:` et `chkdsk C:` pour vérifier les volumes et tenter des corrections.
 
 Les outils de réparation du secteur d’amorçage sont ensuite utilisés, via :
 
-- `bootsect /nt60 SYS` (`26-bootsect_cmd.png`).
+- `bootsect /nt60 SYS`.
 
-Malgré ces tentatives, les réparations ne permettent pas de rétablir un démarrage complet, ce qui mène à la prise d’un nouvel instantané pour sauvegarder l’état avant redémarrage (`27-snap_before_reboot.png`).
+Malgré ces tentatives, les réparations ne permettent pas de rétablir un démarrage complet, ce qui mène à la prise d’un nouvel instantané pour sauvegarder l’état avant redémarrage.
 
 ---
 
@@ -78,14 +78,14 @@ Les actions portent sur l’amélioration des performances et la neutralisation 
 
 ## ⚙️ Déroulement du TP
 
-Une fois le système de Mme Michu à nouveau accessible, une analyse complète du poste est effectuée à l’aide d’un outil anti-malware (`34-run_anti_malware.png`).  
+Une fois le système de Mme Michu à nouveau accessible, une analyse complète du poste est effectuée à l’aide d’un outil anti-malware.  
 L’objectif est de s’assurer qu’aucun fichier ou processus malveillant n’interfère encore avec le système.
 
-Constatant quelques lenteurs, la machine virtuelle est ensuite configurée pour disposer de **plus de ressources matérielles** : la mémoire vive et le nombre de cœurs CPU sont augmentés (`35-increase_ram_cpu.png`).
+Constatant quelques lenteurs, la machine virtuelle est ensuite configurée pour disposer de **plus de ressources matérielles** : la mémoire vive et le nombre de cœurs CPU sont augmentés.
 
-Afin de renforcer la stabilité au démarrage, certaines tâches PowerShell jugées inutiles ou potentiellement dangereuses sont désactivées (`36-powershelldisable_at_windows_starting.png`).
+Afin de renforcer la stabilité au démarrage, certaines tâches PowerShell jugées inutiles ou potentiellement dangereuses sont désactivées.
 
-Un redémarrage final permet de **vérifier le bon chargement de Windows** et de confirmer la réussite des ajustements (`37-check_load_after.png`).
+Un redémarrage final permet de **vérifier le bon chargement de Windows** et de confirmer la réussite des ajustements.
 
 ---
 
@@ -121,13 +121,13 @@ L’objectif de cette troisième étape est d’effectuer une **analyse complèt
 
 ## ⚙️ Déroulement du TP
 
-La machine est d’abord configurée pour **reconnecter le disque secondaire (E:)**, utilisé comme support de données utilisateur (`38-connection disque E.png`).  
-Une vérification du volume est immédiatement lancée via la commande `chkdsk`, afin d’évaluer son état (`39-chkdsk.png`).
+La machine est d’abord configurée pour **reconnecter le disque secondaire (E:)**, utilisé comme support de données utilisateur.  
+Une vérification du volume est immédiatement lancée via la commande `chkdsk`, afin d’évaluer son état.
 
 L’analyse montre plusieurs secteurs endommagés, que `chkdsk` tente de corriger automatiquement.  
-Une vérification supplémentaire du disque E: est effectuée directement via l’interface Oracle VirtualBox (`40-chkdsk_disk E - Oracle VirtualBox.png`), confirmant que les opérations de réparation sont bien en cours.
+Une vérification supplémentaire du disque E: est effectuée directement via l’interface Oracle VirtualBox, confirmant que les opérations de réparation sont bien en cours.
 
-Pour finaliser le processus, un **redémarrage complet de la machine** est initié, permettant à Windows d’exécuter un `chkdsk` sur la partition système C: avant le chargement du bureau (`41-redemmarage pour checkdisk c.png`).
+Pour finaliser le processus, un **redémarrage complet de la machine** est initié, permettant à Windows d’exécuter un `chkdsk` sur la partition système C: avant le chargement du bureau.
 
 ---
 
@@ -163,9 +163,9 @@ L’objectif est de vérifier la fiabilité du mécanisme de **récupération de
 
 Depuis le dossier **Images**, l’option *Versions précédentes* est ouverte dans les propriétés du répertoire.  
 Trois points de restauration sont disponibles : ils correspondent à des sauvegardes automatiques créées par le système lors d’opérations antérieures.  
-L’un d’eux est sélectionné pour visualiser le contenu sauvegardé, notamment le dossier **York**, contenant les images à récupérer (`42-restauration_dossier_york.png`).
+L’un d’eux est sélectionné pour visualiser le contenu sauvegardé, notamment le dossier **York**, contenant les images à récupérer.
 
-La restauration est ensuite lancée depuis cette version sauvegardée (`43-restauration_ancienne_version.png`), permettant de remettre en place l’ensemble des fichiers présents lors de la date choisie.  
+La restauration est ensuite lancée depuis cette version sauvegardée, permettant de remettre en place l’ensemble des fichiers présents lors de la date choisie.  
 L’opération se termine avec succès, les images réapparaissent dans le dossier initial.
 
 ---
