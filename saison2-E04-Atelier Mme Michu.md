@@ -59,7 +59,7 @@ Toutes les étapes sont documentées ci-dessous :
 | Ejection de l'iso et redémarrage VM: | ![Snapshot final](captures/30-remove_iso.png) |
 | On bute sur une erreur Winload: | ![Snapshot final](captures/31-winload_error.png) |
 | On reconstruit: | ![Snapshot final](captures/32-to_rebuild_winload.png) |
-| Windows est fonctionnel: | ![Snapshot final](captures/33-to_be_back) |
+| Windows est fonctionnel: | ![Snapshot final](captures/33-to_be_back.png) |
 
 ---
 
