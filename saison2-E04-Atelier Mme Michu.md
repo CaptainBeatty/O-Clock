@@ -175,7 +175,7 @@ L’opération se termine avec succès, les images réapparaissent dans le dossi
 | Étape | Capture |
 |:------|:--------|
 | Sélection d’une version précédente | ![Restauration dossier York](captures/42-restauration_dossier_york.png) |
-| Lancement de la restauration | ![Restauration ancienne version](captures/43-restauration_ancienne_version.png) |
+| Recupération du dossier et des données | ![Restauration ancienne version](captures/44-recuperation_dossier_perdu.png) |
 
 ---
 
