@@ -64,3 +64,46 @@ la table de démarrage et certaines partitions semblent corrompues.
 Les réparations automatiques ont échoué, mais les commandes `chkdsk` et `bootsect` ont permis de restaurer partiellement les volumes, posant les bases de la prochaine étape de restauration.
 
 ---
+
+**Étape 2 : Optimisation et sécurisation post-réparation**
+
+---
+
+## 🎯 Objectif
+
+Cette seconde étape vise à **finaliser la remise en service** de la machine virtuelle après la phase de réparation.  
+Les actions portent sur l’amélioration des performances et la neutralisation des éléments suspects détectés au démarrage.
+
+---
+
+## ⚙️ Déroulement du TP
+
+Une fois le système de Mme Michu à nouveau accessible, une analyse complète du poste est effectuée à l’aide d’un outil anti-malware (`34-run_anti_malware.png`).  
+L’objectif est de s’assurer qu’aucun fichier ou processus malveillant n’interfère encore avec le système.
+
+Constatant quelques lenteurs, la machine virtuelle est ensuite configurée pour disposer de **plus de ressources matérielles** : la mémoire vive et le nombre de cœurs CPU sont augmentés (`35-increase_ram_cpu.png`).
+
+Afin de renforcer la stabilité au démarrage, certaines tâches PowerShell jugées inutiles ou potentiellement dangereuses sont désactivées (`36-powershelldisable_at_windows_starting.png`).
+
+Un redémarrage final permet de **vérifier le bon chargement de Windows** et de confirmer la réussite des ajustements (`37-check_load_after.png`).
+
+---
+
+## 🖼️ Captures d’écran
+
+| Étape | Capture |
+|:------|:--------|
+| Analyse antivirus | ![Analyse anti-malware](captures/34-run_anti_malware.png) |
+| Augmentation des ressources VM | ![Ressources VM](captures/35-increase_ram_cpu.png) |
+| Désactivation de PowerShell au démarrage | ![PowerShell désactivé](captures/36-powershelldisable_at_windows_starting.png) |
+| Vérification du démarrage final | ![Redémarrage](captures/37-check_load_after.png) |
+
+---
+
+## 🧾 Bilan de l’étape 2
+
+La machine de Mme Michu est désormais **fonctionnelle et stable**.  
+Les vérifications de sécurité sont satisfaisantes et les performances ont été améliorées.  
+Cette étape clôt la phase de dépannage et ouvre la voie à un contrôle global du système et de sa maintenance à long terme.
+
+---
