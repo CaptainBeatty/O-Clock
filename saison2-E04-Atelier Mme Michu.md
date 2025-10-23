@@ -96,6 +96,7 @@ Un redémarrage final permet de **vérifier le bon chargement de Windows** et de
 | Analyse antivirus | ![Analyse anti-malware](captures/34-run_anti_malware.png) |
 | Augmentation des ressources VM | ![Ressources VM](captures/35-increase_ram_cpu.png) |
 | Désactivation de PowerShell au démarrage | ![PowerShell désactivé](captures/36-powershelldisable_at_windows_starting.png) |
+| Avant désactivation | ![Redémarrage](captures/33-check_tasks.png) |
 | Vérification du démarrage final | ![Redémarrage](captures/37-check_load_after.png) |
 
 ---
