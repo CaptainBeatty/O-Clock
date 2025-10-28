@@ -100,31 +100,3 @@ La première clé testée (Kingston DataTraveler 3.0) présentait une **erreur d
 * La clé était **verrouillée matériellement** en lecture seule (firmware de protection activé).
 * Test confirmé hors VM : le blocage provenait du **contrôleur interne** de la clé.
 
-### Solution
-
-Une seconde clé USB fonctionnelle a été utilisée pour finaliser la manipulation et valider le TP.
-
----
-
-## 📂 Dossier des captures
-
-Les images associées à ce TP sont stockées dans le dossier :
-
-```
-/captures
-├── 67bed198-2479-4895-ad15-2120986fe5a0.png   # Conversion et formatage initial
-└── cc37f570-2bc8-419e-8b3b-4de62715607f.png   # Création des partitions et vérification finale
-```
-
----
-
-🧾 **Auteur :** Julien
-💻 **Formation :** O’clock — Aldébaran | Technicien Support IT
-📅 **Sujet :** E06 — BIOS, UEFI, MBR, GPT
-
-```
-
----
-
-Souhaites-tu que je te génère directement un fichier `.md` téléchargeable (par exemple `E06_BIOS_UEFI_MBR_GPT.md`) pour l’ajouter à ton dépôt ?
-```
