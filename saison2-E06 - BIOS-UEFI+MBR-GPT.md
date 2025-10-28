@@ -52,7 +52,7 @@ assign letter=Y
 Les deux partitions sont correctement créées et formatées en **FAT32**, chacune avec une lettre de lecteur distincte.
 
 **Capture :**
-"captures/diskpart2.png"
+![capture diskpart2](./captures/diskpart2.png)
 
 ---
 
