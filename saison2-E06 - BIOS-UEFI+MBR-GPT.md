@@ -23,7 +23,7 @@ convert mbr
 DiskPart confirme la conversion du disque au format **MBR**.
 
 **Capture :**
-`/captures/diskpart1.png`
+`captures/diskpart1.png`
 
 ---
 
@@ -52,7 +52,7 @@ assign letter=Y
 Les deux partitions sont correctement créées et formatées en **FAT32**, chacune avec une lettre de lecteur distincte.
 
 **Capture :**
-`/captures/diskpart2.png`
+`captures/diskpart2.png`
 
 ---
 
