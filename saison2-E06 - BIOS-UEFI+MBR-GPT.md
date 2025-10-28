@@ -23,7 +23,7 @@ convert mbr
 DiskPart confirme la conversion du disque au format **MBR**.
 
 **Capture :**
-./captures/diskpart1.png
+(./captures/diskpart1.png)
 
 ---
 
