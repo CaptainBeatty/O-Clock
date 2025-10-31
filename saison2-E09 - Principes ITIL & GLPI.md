@@ -116,7 +116,34 @@ Retour dans l’interface GLPI :
 
 ---
 
-## **6. Conclusion**
+## **6. Création d’un ticket depuis le poste Windows**
+
+Depuis l’interface web GLPI, accède à :
+
+Assistance → Créer un ticket
+
+![GLPI Inventaire Ordinateurs](captures/GLPI_ticket1.png)
+
+Exemple de ticket
+
+Titre : Souris dysfonctionnelle
+
+Description :
+
+L’utilisateur signale un problème avec la souris, qui ne répond plus aux clics intermittents.
+Le périphérique USB est reconnu mais ne fonctionne pas correctement.
+
+![GLPI Inventaire Ordinateurs](captures/GLPI_ticket2.png)
+
+Urgence : Moyenne
+
+Demandeur : glpi
+
+Attribué à : glpi
+
+Le ticket apparaît dans la liste avec le statut En cours (Attribué), confirmant la communication complète entre l’interface utilisateur et le back-office GLPI.
+
+## **7. Conclusion**
 
 ✅ **Résultat final :**
 
@@ -125,4 +152,5 @@ Retour dans l’interface GLPI :
 * Le **serveur GLPI** est pleinement fonctionnel.
 * Les **agents Windows et Linux** remontent correctement les informations d’inventaire.
 * La synchronisation se fait automatiquement grâce au service GLPI-Agent.
+* La remonté de ticket est fonctionnelle.
 
