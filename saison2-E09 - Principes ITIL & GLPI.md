@@ -109,7 +109,7 @@ sudo glpi-agent --force --debug
 ## **5. Visualisation de l’inventaire dans GLPI**
 
 Retour dans l’interface GLPI :
-![GLPI Inventaire Ordinateurs](captures/GLPI_Inventaire_Ordinateurs)
+![GLPI Inventaire Ordinateurs](captures/GLPI_Inventaire_Ordinateurs.png)
 
 > Le poste ou le serveur équipé de l’agent apparaît automatiquement dans **Parc → Ordinateurs**.
 > GLPI détecte le matériel, le système, les logiciels, et les composants réseau.
@@ -120,7 +120,7 @@ Retour dans l’interface GLPI :
 
 ✅ **Résultat final :**
 
-![GLPI Inventaire Ordinateurs](captures/GLPI_Dashboard_final)
+![GLPI Inventaire Ordinateurs](captures/GLPI_Dashboard_final.png)
 
 * Le **serveur GLPI** est pleinement fonctionnel.
 * Les **agents Windows et Linux** remontent correctement les informations d’inventaire.
