@@ -122,7 +122,7 @@ Depuis l’interface web GLPI, accède à :
 
 Assistance → Créer un ticket
 
-![GLPI Inventaire Ordinateurs](captures/GLPI_ticket1.png)
+![GLPI Inventaire Ordinateurs](captures/ticket1.png)
 
 Exemple de ticket
 
@@ -133,7 +133,7 @@ Description :
 L’utilisateur signale un problème avec la souris, qui ne répond plus aux clics intermittents.
 Le périphérique USB est reconnu mais ne fonctionne pas correctement.
 
-![GLPI Inventaire Ordinateurs](captures/GLPI_ticket2.png)
+![GLPI Inventaire Ordinateurs](captures/ticket2.png)
 
 Urgence : Moyenne
 
