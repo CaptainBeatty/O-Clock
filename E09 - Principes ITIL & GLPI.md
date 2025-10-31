@@ -9,7 +9,7 @@
 L’installation du serveur GLPI s’effectue sur une VM Linux (Ubuntu 24.04 dans ton cas), accessible depuis le réseau local.
 
 **Interface d’installation de la base MySQL :**
-![GLPI Setup](https://files.oaiusercontent.com/file-pJrBQZcE2Srrw5bT4cE4V9)
+![GLPI Setup](captures/glpi_setup)
 
 > Le serveur SQL (`localhost`), l’utilisateur (`glpiuser`) et la base (`glpi`) sont configurés puis testés avec succès.
 
