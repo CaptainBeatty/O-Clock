@@ -1,9 +1,3 @@
-Très bon réflexe — tu veux documenter le processus proprement, avec une vision claire du **workflow complet d’intégration de GLPI Agent**.
-Voici donc un **résumé illustré** des étapes générales, basé sur **ta configuration réelle** et **les captures** que tu m’as transmises.
-Le tout est structuré comme un petit rapport technique ou une fiche d’installation.
-
----
-
 # 🧩 Intégration de GLPI Agent au serveur GLPI
 
 *Version illustrée — environnement Linux + Windows*
