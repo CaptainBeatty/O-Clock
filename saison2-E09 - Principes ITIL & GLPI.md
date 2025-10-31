@@ -25,7 +25,7 @@ L’installation du serveur GLPI s’effectue sur une VM Linux (Ubuntu 24.04 dan
 
 ### Interface d’administration opérationnelle :
 
-![GLPI Dashboard](https://files.oaiusercontent.com/file-gxJ4qG7nZ3I4WlzAEVRq1T)
+![GLPI Dashboard](captures/GLPI_Dashboard.png)
 
 > Le tableau de bord de GLPI est maintenant accessible via :
 > **[http://192.168.1.22/glpi](http://192.168.1.22/glpi)**
@@ -37,7 +37,6 @@ L’installation du serveur GLPI s’effectue sur une VM Linux (Ubuntu 24.04 dan
 L’agent est téléchargé via le setup officiel (ex. *GLPI Agent 1.15 Target Setup*).
 L’étape clé est la configuration du **Remote Target** :
 
-![GLPI Agent Target Setup](GLPI_Dashboard.png)
 
 > Dans “Remote Targets”, renseigner :
 > `http://192.168.1.22/glpi`
@@ -72,7 +71,7 @@ Get-Content "C:\Program Files\GLPI-Agent\logs\glpi-agent.log" -Tail 50
 Le fichier téléchargé est :
 `glpi-agent-1.7.1-linux-installer.pl`
 
-![Téléchargement GLPI Agent Linux](https://files.oaiusercontent.com/file-iykHiEr1R2mHkaFZCSTGq4)
+![Téléchargement GLPI Agent Linux](captures/Installation_GLPI_Agent_Linux.png)
 
 Lancer ensuite l’installation :
 
@@ -85,8 +84,6 @@ sudo ./glpi-agent-1.7.1-linux-installer.pl
 ---
 
 ### Durant l’installation :
-
-![Installation GLPI Agent Linux](captures/Installation_GLPI_Agent_Linux.png)
 
 > Saisir l’URL du serveur GLPI (ex. `http://127.0.0.1/glpi` si installé sur la même machine).
 > Laisser vide le chemin local et valider.
@@ -112,7 +109,7 @@ sudo glpi-agent --force --debug
 ## **5. Visualisation de l’inventaire dans GLPI**
 
 Retour dans l’interface GLPI :
-![GLPI Inventaire Ordienaturs](captures/GLPI_Inventaire_Ordienaturs)
+![GLPI Inventaire Ordinateurs](captures/GLPI_Inventaire_Ordinateurs)
 
 > Le poste ou le serveur équipé de l’agent apparaît automatiquement dans **Parc → Ordinateurs**.
 > GLPI détecte le matériel, le système, les logiciels, et les composants réseau.
@@ -122,6 +119,8 @@ Retour dans l’interface GLPI :
 ## **6. Conclusion**
 
 ✅ **Résultat final :**
+
+![GLPI Inventaire Ordinateurs](captures/GLPI_Dashboard_final)
 
 * Le **serveur GLPI** est pleinement fonctionnel.
 * Les **agents Windows et Linux** remontent correctement les informations d’inventaire.
