@@ -17,7 +17,7 @@ L’installation du serveur GLPI s’effectue sur une VM Linux (Ubuntu 24.04 dan
 
 ### Connexion réussie à la base de données :
 
-![Connexion MySQL réussie](https://files.oaiusercontent.com/file-WKnPq1Q9uUKam9y0XHgXah)
+![Connexion MySQL réussie](captures/ConnexionMySQLréussie.png)
 
 > GLPI confirme la liaison avec la base et passe à l’étape de création des tables.
 
@@ -37,7 +37,7 @@ L’installation du serveur GLPI s’effectue sur une VM Linux (Ubuntu 24.04 dan
 L’agent est téléchargé via le setup officiel (ex. *GLPI Agent 1.15 Target Setup*).
 L’étape clé est la configuration du **Remote Target** :
 
-![GLPI Agent Target Setup](https://files.oaiusercontent.com/file-sja4Xphz2FEdvHwhd4tFzS)
+![GLPI Agent Target Setup](GLPI_Dashboard.png)
 
 > Dans “Remote Targets”, renseigner :
 > `http://192.168.1.22/glpi`
@@ -61,7 +61,7 @@ Et consulte le log :
 Get-Content "C:\Program Files\GLPI-Agent\logs\glpi-agent.log" -Tail 50
 ```
 
-![Agent Windows Log](https://files.oaiusercontent.com/file-L7cnHKmsqMn2cnHXPS1oqe)
+![Agent Windows Log](captures/Agent_Windows_Log.png)
 
 > On y voit le lancement du service et la communication réussie avec le serveur GLPI.
 
@@ -86,7 +86,7 @@ sudo ./glpi-agent-1.7.1-linux-installer.pl
 
 ### Durant l’installation :
 
-![Installation GLPI Agent Linux](https://files.oaiusercontent.com/file-eV4YB6VXeQ2PhaNHPXqDpu)
+![Installation GLPI Agent Linux](captures/Installation_GLPI_Agent_Linux.png)
 
 > Saisir l’URL du serveur GLPI (ex. `http://127.0.0.1/glpi` si installé sur la même machine).
 > Laisser vide le chemin local et valider.
@@ -112,7 +112,7 @@ sudo glpi-agent --force --debug
 ## **5. Visualisation de l’inventaire dans GLPI**
 
 Retour dans l’interface GLPI :
-![GLPI Inventaire Ordinateurs](https://files.oaiusercontent.com/file-VeHVRXkr2Z9eZ4PQncP2Y9)
+![GLPI Inventaire Ordienaturs](captures/GLPI_Inventaire_Ordienaturs)
 
 > Le poste ou le serveur équipé de l’agent apparaît automatiquement dans **Parc → Ordinateurs**.
 > GLPI détecte le matériel, le système, les logiciels, et les composants réseau.
@@ -127,6 +127,3 @@ Retour dans l’interface GLPI :
 * Les **agents Windows et Linux** remontent correctement les informations d’inventaire.
 * La synchronisation se fait automatiquement grâce au service GLPI-Agent.
 
----
-
-Souhaites-tu que je te sorte cette version directement en **Markdown (pour GitHub ou ton rapport de stage)** avec les blocs d’images et les commandes prêtes à copier-coller ?
