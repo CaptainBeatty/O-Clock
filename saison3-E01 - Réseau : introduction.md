@@ -1,8 +1,4 @@
-Très bien. Voici le contenu Markdown que tu pourras coller directement dans ton dépôt GitHub. Il est prêt à accueillir ta capture d’écran du schéma Packet Tracer.
 
----
-
-````markdown
 # 🧩 Challenge Réseau – Interconnexion entre Paris et Lyon
 
 ## 🎯 Objectif du TP
