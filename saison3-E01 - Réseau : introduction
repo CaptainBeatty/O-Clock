@@ -1,1 +1,128 @@
+Très bien. Voici le contenu Markdown que tu pourras coller directement dans ton dépôt GitHub. Il est prêt à accueillir ta capture d’écran du schéma Packet Tracer.
 
+---
+
+````markdown
+# 🧩 Challenge Réseau – Interconnexion entre Paris et Lyon
+
+## 🎯 Objectif du TP
+L’objectif de ce travail pratique est de **concevoir et configurer un réseau complet** reliant deux sites distants :
+- **Paris**
+- **Lyon**
+
+Chaque site dispose de son propre **switch cœur de réseau (Cisco 3560 Multilayer)** ainsi que de plusieurs **postes clients** et **périphériques** connectés via des **switchs d’accès**.
+
+Le but est de permettre :
+1. La communication **interne** au sein de chaque site (intra-VLAN).  
+2. La communication **entre les deux sites** (inter-sites) via un **lien de couche 3** entre les deux switches cœur de réseau.
+
+---
+
+## 🏙️ Contexte technique
+
+### Site de Paris
+- Switch cœur de réseau : **SW-Core-Paris (Cisco 3560-24PS)**  
+- VLAN local : **VLAN 10 – Comptabilité**  
+- Adresse réseau : `192.168.10.0/24`  
+- Passerelle par défaut : `192.168.10.1`  
+- Appareils :  
+  - 2 PC fixes  
+  - 1 imprimante réseau  
+
+### Site de Lyon
+- Switch cœur de réseau : **SW-Core-Lyon (Cisco 3560-24PS)**  
+- VLAN local : **VLAN 20 – Comptabilité**  
+- Adresse réseau : `192.168.20.0/24`  
+- Passerelle par défaut : `192.168.20.1`  
+- Appareils :  
+  - 2 PC fixes  
+  - 1 imprimante réseau  
+
+---
+
+## 🔗 Interconnexion des sites
+
+Les deux sites sont reliés directement **via un lien de couche 3** entre les switches cœur de réseau.
+
+| Élément | Côté Paris | Côté Lyon | Description |
+|----------|-------------|-----------|--------------|
+| Interface utilisée | `GigabitEthernet0/1` | `GigabitEthernet0/1` | Port L3 |
+| Adresse IP | `10.0.0.1/30` | `10.0.0.2/30` | Lien de transit |
+| Routage | Activé (`ip routing`) | Activé (`ip routing`) | Routage inter-sites |
+
+---
+
+## ⚙️ Configuration principale
+
+### Sur **SW-Core-Paris**
+```bash
+conf t
+ip routing
+interface gi0/1
+ no switchport
+ ip address 10.0.0.1 255.255.255.252
+ no shutdown
+
+interface vlan 10
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+
+ip route 192.168.20.0 255.255.255.0 10.0.0.2
+end
+````
+
+### Sur **SW-Core-Lyon**
+
+```bash
+conf t
+ip routing
+interface gi0/1
+ no switchport
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+
+interface vlan 20
+ ip address 192.168.20.1 255.255.255.0
+ no shutdown
+
+ip route 192.168.10.0 255.255.255.0 10.0.0.1
+end
+```
+
+---
+
+## 🧠 Tests de connectivité
+
+1. Vérifier les interfaces actives :
+
+   ```bash
+   show ip interface brief
+   ```
+2. Tester la liaison de transit :
+
+   ```bash
+   ping 10.0.0.2
+   ```
+3. Tester la communication inter-sites :
+
+   * Depuis un PC de Paris → ping vers un PC de Lyon
+   * Depuis un PC de Lyon → ping vers un PC de Paris
+
+---
+
+## 🖼️ Schéma du réseau
+
+Le schéma suivant illustre la topologie réalisée sur **Cisco Packet Tracer** :
+
+![Schéma du réseau](/captures/schema-reseau-paris-lyon.png)
+
+---
+
+## ✅ Résultats attendus
+
+* Les communications **intra-site** fonctionnent correctement (PC ↔ imprimante ↔ switch).
+* Les communications **inter-sites** sont établies via le lien L3 entre les deux cœurs de réseau.
+* Le routage statique permet la circulation des paquets entre les sous-réseaux `192.168.10.0/24` et `192.168.20.0/24`.
+
+
+```
