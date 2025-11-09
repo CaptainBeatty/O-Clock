@@ -193,7 +193,7 @@ Le laptop est ensuite connecté en DHCP via Wi-Fi.
 
 > Le DHCP centralisé fonctionne désormais pour les deux sites.
 
-![Schéma final](./captures/Pasted%20image%2020251109204831.png)
+![Schéma final](./captures/Pasted%20image%20251109205957.png)
 
 ---
 
