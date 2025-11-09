@@ -16,7 +16,7 @@ Le projet repose sur **Cisco Packet Tracer** et vise à simuler une architecture
 | Paris / LAN | 192.168.1.0 | /24 | 510 hôtes |
 | Paris / DMZ | 192.168.3.0 | /24 | Serveurs |
 | Paris / WiFi public | 192.168.4.0 | /24 | 1022 hôtes |
-| Lille / LAN | 192.168.2.0 | /23 | 510 hôtes |
+| Lille / LAN | 192.168.2.0 | /24 | 510 hôtes |
 | Lille / WiFi public | 192.168.5.0 | /22 | 1022 hôtes |
 
 ---
