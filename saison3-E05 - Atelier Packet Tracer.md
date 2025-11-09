@@ -49,8 +49,6 @@ copy running-config startup-config
 
 Même principe appliqué à chaque switch du réseau.
 
-![Switch Paris](./captures/Pasted%20image%2020251109170939.png)
-
 ---
 
 ## 🛠️ Étape 4 – Configuration initiale des routeurs
@@ -194,6 +192,8 @@ Le laptop est ensuite connecté en DHCP via Wi-Fi.
 ![Serveur DHCP centralisé](./captures/Pasted%20image%2020251109182723.png)
 
 > Le DHCP centralisé fonctionne désormais pour les deux sites.
+
+![Schéma final](./captures/Pasted%20image%2020251109204831.png)
 
 ---
 
