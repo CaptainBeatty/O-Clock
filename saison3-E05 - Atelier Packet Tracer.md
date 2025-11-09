@@ -25,7 +25,7 @@ Le projet repose sur **Cisco Packet Tracer** et vise à simuler une architecture
 
 Schéma global de l’interconnexion entre les deux sites, incluant le VPN, la DMZ et les points d’accès Wi-Fi.
 
-![Topologie réseau](./captures/Pasted%20image%2020251109181100.png)
+![Topologie réseau](./captures/Pastedimage2020251109181100.png)
 
 ---
 
