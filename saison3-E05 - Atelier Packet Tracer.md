@@ -1,11 +1,4 @@
-Très bien.
-Je vais partir sur un style **professionnel mais vivant** — clair, espacé, agréable à lire sur GitHub, avec une structure de cours et quelques touches visuelles pour le rythme.
 
-Voici ton fichier Markdown prêt à l’emploi :
-
----
-
-````markdown
 # 🧩 S03 – Atelier Packet Tracer
 
 ## Objectif
@@ -219,7 +212,5 @@ L’atelier *Packet Tracer* met en œuvre :
 
 Le réseau est entièrement opérationnel et respecte les exigences d’un environnement d’entreprise segmenté et sécurisé.
 
-```
 
----
 
