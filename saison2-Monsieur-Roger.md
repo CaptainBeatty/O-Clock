@@ -1,93 +1,76 @@
 # 🧰 TP – Monsieur Roger
 
 ## 🔗 Consignes du challenge
-[Voir le sujet sur Kourou](https://kourou.oclock.io/ressources/recap-quotidien/aldebaran-technicien-support-it-ebonus-monsieur-roger/)
+[Consignes du challenge](https://kourou.oclock.io/ressources/recap-quotidien/aldebaran-technicien-support-it-ebonus-monsieur-roger/)
 
 ---
 
-## ⚙️ Étape 1 – Incident : Résoudre le problème de connexion (mot de passe)
+## Étape 1 : Incident – Résoudre le problème de connexion (mot de passe)
 
-Pour commencer, téléchargement de **Hiren’s Boot CD** afin de contourner le mot de passe Windows et restaurer l’accès à la session.
+Pour commencer, je télécharge le logiciel **Hiren's Boot** pour résoudre le problème de mot de passe.
 
-L’accès est rétabli avec succès.
+![Hiren's Boot](./captures/1.png)
+![Session restaurée](./captures/2.png)
 
-![Hiren’s Boot](./captures/Pasted%20image%20202511101130830%20-%20Copie.png)
-
----
-
-## 🌐 Étape 2 – Incident : Réparer le périphérique réseau
-
-Le problème venait de la carte réseau désactivée.  
-Il suffit de la **réactiver** depuis le panneau des connexions réseau.
-
-![Activation de la carte réseau](./captures/Pasted%20image%2020251110111422%20-%20Copie.png)
-
-Une fois activée, on effectue un test de connectivité :
-
-```powershell
-ping 8.8.8.8
-````
-
-Résultat : la communication est bien établie.
-
-![Ping réussi](./captures/Pasted%20image%20202511101114422%20-%20Copie.png)
+L'accès est rétabli.
 
 ---
 
-## 🧩 Étape 3 – Incident : Récupérer les images perdues avec Recuva
+## Étape 2 : Incident – Réparer le périphérique réseau
 
-Téléchargement du logiciel **Recuva** depuis le site officiel :
+Ici le problème est simple : il faut simplement **redémarrer la carte réseau**.
 
-![Téléchargement Recuva](./captures/Pasted%20image%20202511101114739%20-%20Copie.png)
+![Carte réseau](./captures/3.png)
+![Redémarrage carte réseau](./captures/4.png)
 
-L’outil est exécuté et le dossier *Images* est scanné :
+On ping le site Google pour vérification :  
+la communication est établie.
 
-![Scan Recuva](./captures/Pasted%20image%2020251110120808%20-%20Copie.png)
-
-Aucun fichier supprimé pertinent n’a été retrouvé, les images d’origine étaient déjà présentes.
-
----
-
-## 💾 Étape 4 – Demande : Ajouter l’historique de fichiers
-
-Depuis le **Panneau de configuration → Système et sécurité → Historique des fichiers**,
-l’option est activée afin d’assurer la sauvegarde automatique des fichiers personnels.
-
-![Historique des fichiers](./captures/Pasted%20image%2020251110120938%20-%20Copie.png)
+![Ping réussi](./captures/5.png)
 
 ---
 
-## 🛠️ Étape 5 – Demande : Créer un point de restauration
+## Étape 3 : Incident – Récupérer les images perdues avec Recuva
 
-Recherche dans la barre Windows : **"point de restauration"**
-Puis création manuelle d’un point.
+On télécharge le logiciel **Recuva** :
 
-![Création du point](./captures/Pasted%20image%2020251110120959%20-%20Copie.png)
+![Téléchargement Recuva](./captures/6.png)
 
-Une fois créé, Windows confirme l’opération :
+On exécute le logiciel puis on scanne le dossier *Images* :
 
-![Point de restauration créé](./captures/Pasted%20image%2020251110121501%20-%20Copie.png)
+![Analyse dossier Images](./captures/7.png)
 
-On peut ensuite le visualiser dans la liste des points existants :
-
-![Liste des points de restauration](./captures/Pasted%20image%2020251110130830%20-%20Copie.png)
+Rien de concluant n'a été trouvé.  
+Les fichiers images sont bien en place.
 
 ---
 
-## ✅ Conclusion
+## Étape 4 : Demande – Ajouter l’historique de fichiers pour le dossier « Images »
 
-Toutes les demandes et incidents ont été traités :
+Ici, on active l'option d’**historique de fichiers** dans Windows.
 
-* ✅ Restauration d’accès avec Hiren’s Boot
-* ✅ Réactivation du périphérique réseau
-* ✅ Vérification de connectivité (ping)
-* ✅ Vérification des fichiers avec Recuva
-* ✅ Activation de l’historique de fichiers
-* ✅ Création d’un point de restauration
+![Historique des fichiers](./captures/8.png)
 
-**Système de Monsieur Roger pleinement fonctionnel.**
+---
 
-```
+## Étape 5 : Demande – Créer un point de restauration
 
-```
+On recherche « point de restauration » dans la recherche Windows.
 
+![Recherche point de restauration](./captures/9.png)
+
+On crée le point.  
+Le point de restauration est désormais créé.
+
+---
+
+## ✅ Résumé
+
+- Problème de mot de passe résolu avec Hiren's Boot  
+- Connexion réseau réparée  
+- Vérification de connectivité réussie  
+- Vérification des fichiers avec Recuva  
+- Activation de l’historique de fichiers  
+- Création d’un point de restauration
+
+L’intervention sur le poste de **Monsieur Roger** est terminée avec succès.
