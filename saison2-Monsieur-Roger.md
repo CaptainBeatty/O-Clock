@@ -9,8 +9,8 @@
 
 Pour commencer, je télécharge le logiciel **Hiren's Boot** pour résoudre le problème de mot de passe.
 
-![Hiren's Boot](./captures/1.png)
-![Session restaurée](./captures/2.png)
+![Hiren's Boot](./captures/a1.png)
+![Session restaurée](./captures/a2.png)
 
 L'accès est rétabli.
 
@@ -20,13 +20,13 @@ L'accès est rétabli.
 
 Ici le problème est simple : il faut simplement **redémarrer la carte réseau**.
 
-![Carte réseau](./captures/3.png)
+![Carte réseau](./captures/a3.png)
 ![Redémarrage carte réseau](./captures/4.png)
 
 On ping le site Google pour vérification :  
 la communication est établie.
 
-![Ping réussi](./captures/5.png)
+![Ping réussi](./captures/a5.png)
 
 ---
 
@@ -34,11 +34,11 @@ la communication est établie.
 
 On télécharge le logiciel **Recuva** :
 
-![Téléchargement Recuva](./captures/6.png)
+![Téléchargement Recuva](./captures/a6.png)
 
 On exécute le logiciel puis on scanne le dossier *Images* :
 
-![Analyse dossier Images](./captures/7.png)
+![Analyse dossier Images](./captures/a7.png)
 
 Rien de concluant n'a été trouvé.  
 Les fichiers images sont bien en place.
@@ -49,7 +49,7 @@ Les fichiers images sont bien en place.
 
 Ici, on active l'option d’**historique de fichiers** dans Windows.
 
-![Historique des fichiers](./captures/8.png)
+![Historique des fichiers](./captures/a8.png)
 
 ---
 
@@ -57,7 +57,7 @@ Ici, on active l'option d’**historique de fichiers** dans Windows.
 
 On recherche « point de restauration » dans la recherche Windows.
 
-![Recherche point de restauration](./captures/9.png)
+![Recherche point de restauration](./captures/a9.png)
 
 On crée le point.  
 Le point de restauration est désormais créé.
