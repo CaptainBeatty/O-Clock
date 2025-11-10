@@ -10,7 +10,6 @@
 Pour commencer, je télécharge le logiciel **Hiren's Boot** pour résoudre le problème de mot de passe.
 
 ![Hiren's Boot](./captures/a1.png)
-![Session restaurée](./captures/a2.png)
 
 L'accès est rétabli.
 
@@ -21,7 +20,7 @@ L'accès est rétabli.
 Ici le problème est simple : il faut simplement **redémarrer la carte réseau**.
 
 ![Carte réseau](./captures/a3.png)
-![Redémarrage carte réseau](./captures/4.png)
+![Redémarrage carte réseau](./captures/a4.png)
 
 On ping le site Google pour vérification :  
 la communication est établie.
