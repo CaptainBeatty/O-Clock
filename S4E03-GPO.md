@@ -42,7 +42,7 @@ The client machine is a Windows 10 computer on the same LAN.
 
 Create a folder in **C:** that will contain the wallpaper image.
 
-![Folder creation](./captures/2025-11-23.png)
+![Folder creation](./captures/2025-11-23_17_55_55.png)
 
 Place the wallpaper image inside this folder (preferably in `.jpg` format).
 
