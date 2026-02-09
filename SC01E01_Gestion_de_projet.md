@@ -44,7 +44,7 @@ Moderniser l’infrastructure informatique d’un campus scolaire afin d’assur
 
 ---
 
-## 3. Parties prenantes et responsabilités
+## 3. Parties prenantes (interne / externe)
 
 ### Commanditaire
 - Direction du campus.
@@ -63,20 +63,8 @@ Environ 500 utilisateurs :
 
 ---
 
-## 4. Planning prévisionnel et jalons
+## 4. Livrables principaux
 
-### Durée estimée
-Projet estimé à **quelques semaines**.
-
-### Phases du projet
-- Analyse de l’existant
-- Conception de l’architecture cible
-- Définition des choix techniques
-- Déploiement et configuration
-- Tests et validation
-- Mise en production
-
-### Livrables
 - Architecture détaillée (réseau, système, stockage)
 - Choix techniques et justifications
 - Spécifications matérielles
@@ -84,15 +72,9 @@ Projet estimé à **quelques semaines**.
 - Configuration réseau détaillée
 - Configuration de sécurité détaillée
 
-### Jalons
-- Validation des livrables par la direction.
-
-### Contraintes de planning
-- Aucune interruption de service ne doit être engendrée par le projet.
-
 ---
 
-## 5. Risques et mesures d’atténuation
+## 5. Contraintes Qualité / Coût / Délai
 
 ### Risques
 - Dysfonctionnement de la nouvelle infrastructure.
