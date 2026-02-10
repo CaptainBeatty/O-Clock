@@ -1,10 +1,3 @@
-Très bon choix. Là, on passe de *« contenu correct »* à *« rendu professionnel »*.
-Objectif : **lisibilité maximale, zéro bruit, impact immédiat pour le correcteur**.
-
-Je te propose une **structure Markdown optimisée**, prête à copier-coller autour de ton WBS Mermaid.
-
----
-
 # 📘 Modernisation de l’infrastructure IT du campus
 
 ## Work Breakdown Structure (WBS)
