@@ -1,127 +1,117 @@
-Mini-PRA / PCA — Incident majeur
-1. Scénario d’incident
+# Mini-PRA / PCA — Incident majeur
 
+## 1. Scénario d’incident
+
+**Incident majeur :**  
 Panne totale du contrôleur de domaine Active Directory (DC unique).
 
-Cause :
+**Cause :**  
 Erreur humaine entraînant une coupure électrique du serveur.
 
-2. Périmètre impacté
+---
 
-Authentification utilisateurs indisponible
+## 2. Périmètre impacté
 
-Accès aux ressources réseau impossible
+- Authentification utilisateurs indisponible  
+- Accès aux ressources réseau impossible  
+- Imprimantes réseau inaccessibles  
+- Wi-Fi sécurisé potentiellement indisponible  
 
-Imprimantes réseau inaccessibles
+---
 
-Wi-Fi sécurisé potentiellement indisponible
+## 3. Impact métier
 
-3. Impact métier
+- **Apprenants :** ouverture de session impossible  
+- **Formateurs :** accès aux ressources pédagogiques impossible  
+- **Personnel :** services réseau dégradés  
 
-Apprenants : ouverture de session impossible
+---
 
-Formateurs : accès aux ressources pédagogiques impossible
-
-Personnel : services réseau dégradés
-
-4. Hypothèses de départ
+## 4. Hypothèses de départ
 
 On considère que :
 
-Les locaux techniques sont accessibles
+- Les locaux techniques sont accessibles  
+- L’incident est une coupure électrique sans dommage matériel  
+- Une sauvegarde récente est disponible  
+- Les ressources IT sont disponibles  
 
-L’incident est une coupure électrique sans dommage matériel
+---
 
-Une sauvegarde récente est disponible
+## 5. Mesures préventives
 
-Les ressources IT sont disponibles
+### Mesures techniques
 
-5. Mesures préventives
-Techniques
+- Sauvegardes régulières  
+- Snapshots système  
+- Supervision de l’infrastructure  
+- Documentation technique  
 
-Sauvegardes régulières
+### Mesures organisationnelles
 
-Snapshots système
+- Procédures d’exploitation  
+- Étiquetage des prises  
+- Sensibilisation des utilisateurs  
 
-Supervision de l’infrastructure
+### Mesures de continuité
 
-Documentation technique
+- Second contrôleur de domaine  
+- Tests réguliers du PRA  
+- Plan de communication  
 
-Organisationnelles
+---
 
-Procédures d’exploitation
+## 6. Procédures de reprise
 
-Étiquetage des prises
+### Actions immédiates (diagnostic)
 
-Sensibilisation utilisateurs
+- Vérification des alertes de supervision  
+- Analyse des journaux système  
+- Contrôle physique du serveur  
+- Vérification de l’alimentation électrique  
 
-Continuité
+---
 
-Second contrôleur de domaine
+### Actions de reprise
 
-Tests réguliers du PRA
+- Remise sous tension du serveur  
+- Vérification du redémarrage  
+- Contrôle des services AD / DNS / DHCP  
+- Validation via la supervision  
 
-Plan de communication
+---
 
-6. Procédures de reprise
-Actions immédiates
+### Contrôles de validation
 
-Vérification des alertes de supervision
+- Test d’authentification utilisateurs  
+- Vérification des accès réseau  
+- Vérification Wi-Fi / LAN  
+- Vérification des services d’impression  
+- Analyse préventive des journaux système  
 
-Analyse des journaux système
+---
 
-Contrôle physique du serveur
+## 7. Responsable et délai de restauration
 
-Vérification alimentation électrique
-
-Actions de reprise
-
-Remise sous tension du serveur
-
-Vérification du redémarrage
-
-Contrôle des services AD / DNS / DHCP
-
-Validation via supervision
-
-Contrôles de validation
-
-Test d’authentification utilisateurs
-
-Vérification des accès réseau
-
-Vérification Wi-Fi / LAN
-
-Vérification impression
-
-Analyse préventive des logs
-
-7. Responsable et délai
-
-Responsable :
+**Responsable :**  
 Équipe IT
 
-RTO cible :
+**RTO cible :**  
 1 heure
 
-Priorités :
+### Ordre de priorité
 
-Services d’infrastructure (AD / DNS / DHCP)
+1. Services d’infrastructure (AD / DNS / DHCP)  
+2. Accès réseau (Wi-Fi / LAN)  
+3. Services utilisateurs  
 
-Accès réseau (Wi-Fi / LAN)
+---
 
-Services utilisateurs
+## 8. Indicateurs de succès
 
-8. Indicateurs de succès
-
-Services AD / DNS / DHCP opérationnels
-
-Authentification fonctionnelle
-
-Accès ressources validé
-
-Connectivité stable
-
-Supervision / sauvegardes actives
-
-Absence d’erreurs critiques logs
+- Services AD / DNS / DHCP opérationnels  
+- Authentification fonctionnelle  
+- Accès aux ressources validé  
+- Connectivité réseau stable  
+- Supervision et sauvegardes actives  
+- Absence d’erreurs critiques dans les journaux système  
