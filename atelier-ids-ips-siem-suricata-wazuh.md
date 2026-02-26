@@ -38,10 +38,16 @@ Depuis Suricata :
 ---
 
 # Étape 1 — Déployer Suricata (CT/VM) + config IDS
+
+Étape 1.1 : Un IDS/IPS c'est quoi ?
+Un IDS (Intrusion Detection System) surveille le trafic réseau et génère des alertes quand il détecte un comportement suspect. Un IPS (Intrusion Prevention System) fait la même chose, mais peut en plus bloquer le trafic malveillant.
+
+Étape 1.2 : Créer la machine Suricata sur un conteneur LXC de notre lab Proxmox
+
 ## Actions
 - ✅ OK Créer CT/VM sur vmbr2 avec IP statique 10.0.0.50/16 gw 10.0.0.1
 
-## Vérification connectivité — Suricata (10.0.0.50)
+## Étape 1.3 : Vérifier la connectivité — Suricata (10.0.0.50)
 
 ### Tests effectués
 
@@ -65,7 +71,10 @@ La machine Suricata dispose :
 
 Environnement réseau validé.
 
-- ✅ Installer Suricata + suricata-update
+Étape 1.4 : Installer Suricata
+
+`apt update && apt upgrade -y
+ apt install -y suricata suricata-update`
 
 `root@suricata-julien:~# suricata --build-info | head -5
 This is Suricata version 7.0.10 RELEASE
