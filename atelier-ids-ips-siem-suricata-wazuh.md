@@ -253,6 +253,8 @@ Sur la machine Suricata, on édite la configuration de l'agent dans et on effect
 
 nano /var/ossec/etc/ossec.conf
 
+## Étape 4.4 : Vérifier la réception des événements
+
 ![dashboard](event.png)
 La capture montre la bonne réception de l'évenement. 
 
