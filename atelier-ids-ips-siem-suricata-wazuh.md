@@ -243,6 +243,7 @@ Côté serveur Wazuh :
 
 Résultat : L'agent Suricata est actif ✅
 
+![dashboard](agent.png)
 
 ## Preuves (captures)
 ![ip a](ipa.png)
