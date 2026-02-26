@@ -224,6 +224,8 @@ Résultat : Les trois services sont actifs ✅
 
 ## Étape 4.1 : Installer l'agent Wazuh sur Suricata
 
+Côté serveur Suricata : 
+
 `systemctl daemon-reload`\
 `systemctl enable wazuh-agent`\
 `systemctl start wazuh-agent`\
@@ -231,12 +233,15 @@ Résultat : Les trois services sont actifs ✅
 
 Résultat : L'agent est actif ✅
 
+## Étape 4.2 : Vérifier la connexion de l'agent
 
+Côté serveur Wazuh : 
 
+`/var/ossec/bin/manage_agents -l`\
+`Available agents:
+   ID: 001, Name: suricata-julien, IP: any`\
 
-
-
-
+Résultat : L'agent Suricata est actif ✅
 
 
 ## Preuves (captures)
