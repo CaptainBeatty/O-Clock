@@ -356,6 +356,8 @@ Dans le Dashboard Wazuh :
 
 ![dashboard](correl.png)
 
+L'alerte custom apparait avec le message CUSTOM - Mot secret detecte dans le trafic HTTP.
+
 Résultat : La corrélation est complète ✅
 
 
