@@ -16,14 +16,20 @@ Mettre en place une chaîne SOC : **détection (Suricata)** → **collecte (Wazu
 
 # Étape 0 — Pré-check infra & capacité
 ## Actions
-- [*] Vérifier RAM dispo (>= 10 Go sur l’hôte Proxmox)
-- [ ] Vérifier vmbr2 opérationnel + routage/NAT via pfSense
-- [ ] Valider DNS/Internet sortant depuis le LAN
+- ✅ OK Vérifier RAM dispo (>= 10 Go sur l’hôte Proxmox)
+- ✅ OK Vérifier vmbr2 opérationnel + routage/NAT via pfSense
+- ✅ OK Valider DNS/Internet sortant depuis le LAN
 
 ## Preuves (captures)
-- [ ] Proxmox: résumé ressources (RAM)
-- [ ] pfSense: règles LAN/NAT (si nécessaire)
-- [ ] Ping gateway + 8.8.8.8 depuis une VM LAN
+
+Depuis Suricata :
+
+✅ ping 10.0.0.1 → OK
+✅ ping 8.8.8.8 → OK
+
+- ✅ OK Proxmox: résumé ressources (RAM)
+- ✅ OKpfSense: règles LAN/NAT (si nécessaire)
+- ✅ OK Ping gateway + 8.8.8.8 depuis une VM LAN
 
 ## Résultat
 - ✅ OK / ❌ NOK
@@ -33,7 +39,7 @@ Mettre en place une chaîne SOC : **détection (Suricata)** → **collecte (Wazu
 
 # Étape 1 — Déployer Suricata (CT/VM) + config IDS
 ## Actions
-- [ ] Créer CT/VM sur vmbr2 avec IP statique 10.0.0.50/16 gw 10.0.0.1
+- ✅ OK Créer CT/VM sur vmbr2 avec IP statique 10.0.0.50/16 gw 10.0.0.1
 - [ ] Installer Suricata + suricata-update
 - [ ] Configurer HOME_NET, interface capture, EVE JSON enrichi
 - [ ] Télécharger règles ET Open
@@ -41,6 +47,7 @@ Mettre en place une chaîne SOC : **détection (Suricata)** → **collecte (Wazu
 
 ## Preuves (captures)
 - [ ] `ip a`
+![ip a](ipa.png)
 - [ ] `suricata --build-info | head`
 - [ ] Extrait `suricata.yaml` (HOME_NET, af-packet, eve-log alert)
 - [ ] `grep -c "^alert" ...suricata.rules`
