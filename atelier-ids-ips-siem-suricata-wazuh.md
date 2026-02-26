@@ -182,6 +182,8 @@ Un SIEM (Security Information and Event Management) est une plateforme qui colle
     │ (cible)  │   via agent       │ Wazuh Dashboard  │
     └──────────┘                   └──────────────────┘
 
+## Étape 3.2 : Créer la VM Wazuh
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
