@@ -264,9 +264,9 @@ La capture montre la bonne réception de l'évenement.
 
 Résultat : L'agent est actif et apparait en dashboard ✅
 
+# Étape 5 : Valider la détection de bout en bout
 
-
-
+## Étape 5.1 : Provoquer un événement de test
 
 
 
