@@ -206,7 +206,12 @@ Résultat : ✅ Succès
 
 ## Étape 3.4 : Installer Wazuh (tout-en-un)
 
+`su -\
+curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh
+sudo bash ./wazuh-install.sh -a`
 
+
+Résultat : 
 
 
 
