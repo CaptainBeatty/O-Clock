@@ -46,7 +46,6 @@ Depuis Suricata :
 - [ ] Démarrer service + valider écoute
 
 ## Preuves (captures)
-`ip a`
 ![ip a](ipa.png)
 - [ ] `suricata --build-info | head`
 - [ ] Extrait `suricata.yaml` (HOME_NET, af-packet, eve-log alert)
