@@ -285,10 +285,28 @@ Dans le Dashboard Wazuh (https://10.0.0.40) :
 
 Résultat : L'alerte est visible ✅
 
+# Bonus : Règle personnalisée et corrélation
 
+## B.1 : Créer une règle Suricata personnalisée
 
+Ajoutez une règle qui détecte un mot-clé spécifique dans le trafic HTTP :
 
+```
+alert http any any -> any any (msg:"CUSTOM - Mot secret detecte dans le trafic HTTP"; flow:established,to_server; content:"SuperSecret2025"; nocase; sid:1000001; rev:1; classtype:policy-violation;)
+```
 
+<aside>
+
+Voici un résumé de la règle :
+
+- `alert http` : déclencher une alerte sur le trafic HTTP
+- `any any -> any any` : quelle que soit la source et la destination
+- `content:"SuperSecret2025"` : chercher cette chaîne dans le contenu
+- `nocase` : insensible à la casse
+- `sid:1000001` : identifiant unique (les SID custom commencent à 1000001)
+- `classtype:policy-violation` : catégorie de l'alerte
+
+</aside>
 
 
 
