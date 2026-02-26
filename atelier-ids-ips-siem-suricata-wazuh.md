@@ -289,7 +289,7 @@ Résultat : L'alerte est visible ✅
 
 ## B.1 : Créer une règle Suricata personnalisée
 
-Ajoutez une règle qui détecte un mot-clé spécifique dans le trafic HTTP :
+Ajout d'une règle qui détecte un mot-clé spécifique dans le trafic HTTP :
 
 ```
 alert http any any -> any any (msg:"CUSTOM - Mot secret detecte dans le trafic HTTP"; flow:established,to_server; content:"SuperSecret2025"; nocase; sid:1000001; rev:1; classtype:policy-violation;)
@@ -308,13 +308,43 @@ Voici un résumé de la règle :
 
 </aside>
 
+## B.2 : Activer la règle
 
+Édition de la configuration Suricata pour inclure le fichier de règles locales :
 
+```bash
+nano /etc/suricata/suricata.yaml
+```
 
+Dans la section `rule-files`, ajoutez :
 
+```yaml
+rule-files:
+  - suricata.rules
+  - local.rules
+```
 
+![alt text](images/image-20.png)
 
+Redémarrez Suricata :
 
+```bash
+systemctl restart suricata
+```
+
+Vérifiez que la règle est chargée :
+
+```bash
+cat /var/log/suricata/suricata.log
+```
+
+![alt text](images/image-21.png)
+
+`[7221 - Suricata-Main] 2026-02-26 17:42:28 Info: detect: 48782 signatures processed. 1253 are IP-only rules, 4478 are inspecting packet payload, 42817 inspect application layer, 109 are decoder event only`
+
+Résultat : La règle est chargée ✅
+
+## B.3 : Déclencher la règle personnalisée
 
 
 
