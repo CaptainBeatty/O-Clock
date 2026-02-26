@@ -220,14 +220,16 @@ Récupération de l'idenditiant et du password
 
 Résultat : Les trois services sont actifs ✅
 
+# Étape 4 : Connecter les sources
 
+## Étape 4.1 : Installer l'agent Wazuh sur Suricata
 
+`systemctl daemon-reload`\
+`systemctl enable wazuh-agent`\
+`systemctl start wazuh-agent`\
+`systemctl status wazuh-agent`\
 
-
-
-
-
-
+Résultat : L'agent est actif ✅
 
 
 
