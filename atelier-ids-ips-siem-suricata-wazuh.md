@@ -268,15 +268,16 @@ Résultat : L'agent est actif et apparait en dashboard ✅
 
 ## Étape 5.1 : Provoquer un événement de test
 
+Depuis la machine Suricata :
+`curl http://testmynids.org/uid/index.html`
 
+## Étape 5.2 : Vérifier l'alerte locale (Suricata)
 
+`tail -5 /var/log/suricata/fast.log`
 
+Résultat : GPL ATTACK_RESPONSE id check returned root ✅
 
-
-
-
-
-
+## Étape 5.3 : Vérifier l'alerte dans Wazuh
 
 
 
