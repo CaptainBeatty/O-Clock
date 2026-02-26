@@ -112,7 +112,8 @@ Configuration IDS conforme pour détection + intégration SIEM.
 ## Étape 1.6 : Télécharger les règles
 
 `suricata-update`\
-`grep -c "^alert" /var/lib/suricata/rules/suricata.rules`
+`grep -c "^alert" /var/lib/suricata/rules/suricata.rules`\
+`48775`
 
 ## Preuves (captures)
 ![ip a](ipa.png)
