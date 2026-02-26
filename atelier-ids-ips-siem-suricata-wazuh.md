@@ -245,6 +245,39 @@ Résultat : L'agent Suricata est actif ✅
 
 ![dashboard](agent.png)
 
+## Étape 4.3 : Configurer la collecte des logs Suricata
+
+Par défaut, l'agent Wazuh collecte les logs système (auth.log, syslog…). Il faut lui dire de lire aussi le fichier eve.json de Suricata.
+
+Sur la machine Suricata, on édite la configuration de l'agent dans et on effectue un restart de l'agent : 
+
+nano /var/ossec/etc/ossec.conf
+
+![dashboard](event.png)
+La capture montre la bonne réception de l'évenement. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
