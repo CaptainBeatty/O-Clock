@@ -166,6 +166,10 @@ Suricata pleinement opérationnel.
 
 Il a détecté le contenu uid=0(root) dans la réponse HTTP et a déclenché la règle correspondante.
 
+# Étape 3 : Installer Wazuh (SIEM)
+
+
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
