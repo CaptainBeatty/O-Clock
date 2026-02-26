@@ -40,6 +40,31 @@ Depuis Suricata :
 # Étape 1 — Déployer Suricata (CT/VM) + config IDS
 ## Actions
 - ✅ OK Créer CT/VM sur vmbr2 avec IP statique 10.0.0.50/16 gw 10.0.0.1
+
+## Vérification connectivité — Suricata (10.0.0.50)
+
+### Tests effectués
+
+- Ping Gateway (pfSense — 10.0.0.1)
+
+Résultat : ✅ Succès  
+Latence faible (~0.3 ms) → communication LAN fonctionnelle.
+
+- Ping Internet (8.8.8.8)
+
+Résultat : ✅ Succès  
+Aucune perte → NAT pfSense opérationnel.
+
+### Conclusion
+
+La machine Suricata dispose :
+
+✅ Connectivité LAN  
+✅ Accès Internet  
+✅ Routage correct via pfSense
+
+Environnement réseau validé.
+
 - [ ] Installer Suricata + suricata-update
 - [ ] Configurer HOME_NET, interface capture, EVE JSON enrichi
 - [ ] Télécharger règles ET Open
