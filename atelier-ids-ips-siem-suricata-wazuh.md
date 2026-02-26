@@ -206,12 +206,19 @@ Résultat : ✅ Succès
 
 ## Étape 3.4 : Installer Wazuh (tout-en-un)
 
-`su -\
-curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh
-sudo bash ./wazuh-install.sh -a`
+`su -`\
+`curl -sO https://packages.wazuh.com/4.14/wazuh-install.sh`\
+`sudo bash ./wazuh-install.sh -a`\
 
+Récupération de l'idenditiant et du password
 
-Résultat : 
+## Étape 3.5 : Vérifier les services
+
+`systemctl status wazuh-manager`\
+`systemctl status wazuh-indexer`\
+`systemctl status wazuh-dashboard`\
+
+Résultat : Les trois services sont actifs ✅
 
 
 
