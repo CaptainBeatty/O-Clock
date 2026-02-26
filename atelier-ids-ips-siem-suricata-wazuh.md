@@ -168,7 +168,19 @@ Il a détecté le contenu uid=0(root) dans la réponse HTTP et a déclenché la 
 
 # Étape 3 : Installer Wazuh (SIEM)
 
+## Étape 3.1 : Un SIEM c'est quoi ?
+Un SIEM (Security Information and Event Management) est une plateforme qui collecte les logs de multiples sources (IDS, pare-feu, serveurs...), les normalise, les corrèle pour détecter des attaques, et alerte les analystes via un tableau de bord centralisé.
 
+       Sources                          SIEM Wazuh
+    ┌──────────┐                   ┌──────────────────┐
+    │ Suricata │──── eve.json ────>│  Wazuh Manager   │
+    │  (IDS)   │   via agent       │        │         │
+    └──────────┘                   │        ▼         │
+                                   │  Wazuh Indexer   │
+    ┌──────────┐                   │        │         │
+    │  Win11   │──── syslog ──────>│        ▼         │
+    │ (cible)  │   via agent       │ Wazuh Dashboard  │
+    └──────────┘                   └──────────────────┘
 
 ## Preuves (captures)
 ![ip a](ipa.png)
