@@ -196,6 +196,27 @@ Un SIEM (Security Information and Event Management) est une plateforme qui colle
 | Réseau   | Bridge  | vmbr2                            |
 | Réseau   | Modèle  | VirtIO                           |
 
+## Étape 3.3 : Configurer le réseau
+
+ping 10.0.0.1       # Gateway
+ping 10.0.0.50      # Suricata
+ping 8.8.8.8        # Internet
+
+Résultat : ✅ Succès  
+
+## Étape 3.4 : Installer Wazuh (tout-en-un)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
