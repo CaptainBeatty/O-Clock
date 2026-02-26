@@ -279,6 +279,33 @@ Résultat : GPL ATTACK_RESPONSE id check returned root ✅
 
 ## Étape 5.3 : Vérifier l'alerte dans Wazuh
 
+Dans le Dashboard Wazuh (https://10.0.0.40) :
+
+![dashboard](checkalert.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
