@@ -152,6 +152,8 @@ Log Suricata :
 Le moteur IDS charge correctement le jeu de signatures.
 Suricata pleinement opérationnel.
 
+# Étape 2 : Générer un événement de test
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
