@@ -239,7 +239,7 @@ Côté serveur Wazuh :
 
 `/var/ossec/bin/manage_agents -l`\
 `Available agents:
-   ID: 001, Name: suricata-julien, IP: any`\
+   ID: 001, Name: suricata-julien, IP: any`
 
 Résultat : L'agent Suricata est actif ✅
 
@@ -261,7 +261,7 @@ La capture montre la bonne réception de l'évenement.
 ## Étape 4.5 : (Optionnel) Installer un agent sur Win10
 ![dashboard](win10agent.png)
 ![dashboard](win10dashboard.png)
-
+Résultat : L'agent est actif et apparait en dashboard ✅
 
 
 
