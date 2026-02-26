@@ -115,6 +115,12 @@ Configuration IDS conforme pour détection + intégration SIEM.
 `grep -c "^alert" /var/lib/suricata/rules/suricata.rules`\
 `48775`
 
+## Étape 1.7 : Démarrer Suricata
+
+`systemctl enable suricata`\
+`systemctl start suricata`\
+`systemctl status suricata`
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
