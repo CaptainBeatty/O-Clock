@@ -324,8 +324,6 @@ rule-files:
   - local.rules
 ```
 
-![alt text](images/image-20.png)
-
 Redémarrez Suricata :
 
 ```bash
@@ -338,19 +336,17 @@ Vérifiez que la règle est chargée :
 cat /var/log/suricata/suricata.log
 ```
 
-![alt text](images/image-21.png)
-
 `[7221 - Suricata-Main] 2026-02-26 17:42:28 Info: detect: 48782 signatures processed. 1253 are IP-only rules, 4478 are inspecting packet payload, 42817 inspect application layer, 109 are decoder event only`
 
 Résultat : La règle est chargée ✅
 
 ## B.3 : Déclencher la règle personnalisée
 
+`Sur Suricata : nc -l -p 8080`
 
+## B.4 : Vérifier dans Suricata
 
-
-
-
+![dashboard](verif.png)
 
 
 
