@@ -65,7 +65,7 @@ La machine Suricata dispose :
 
 Environnement réseau validé.
 
-- [ ] Installer Suricata + suricata-update
+- ✅ Installer Suricata + suricata-update
 
 `root@suricata-julien:~# suricata --build-info | head -5
 This is Suricata version 7.0.10 RELEASE
