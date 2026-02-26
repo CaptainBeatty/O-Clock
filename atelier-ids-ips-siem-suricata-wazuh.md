@@ -66,18 +66,21 @@ La machine Suricata dispose :
 Environnement réseau validé.
 
 - [ ] Installer Suricata + suricata-update
+
+`root@suricata-julien:~# suricata --build-info | head -5
+This is Suricata version 7.0.10 RELEASE
+Features: NFQ PCAP_SET_BUFF AF_PACKET HAVE_PACKET_FANOUT LIBCAP_NG LIBNET1.1 HAVE_HTP_URI_NORMALIZE_HOOK PCRE_JIT HAVE_NSS HTTP2_DECOMPRESSION HAVE_LUA HAVE_JA3 HAVE_JA4 HAVE_LUAJIT HAVE_LIBJANSSON TLS TLS_C11 MAGIC RUST POPCNT64
+SIMD support: SSE_4_2 SSE_4_1 SSE_3 SSE_2
+Atomic intrinsics: 1 2 4 8 16 byte(s)
+64-bits, Little-endian architecture`
+
 - [ ] Configurer HOME_NET, interface capture, EVE JSON enrichi
 - [ ] Télécharger règles ET Open
 - [ ] Démarrer service + valider écoute
 
 ## Preuves (captures)
 ![ip a](ipa.png)
-- [ ] `root@suricata-julien:~# suricata --build-info | head -5
-This is Suricata version 7.0.10 RELEASE
-Features: NFQ PCAP_SET_BUFF AF_PACKET HAVE_PACKET_FANOUT LIBCAP_NG LIBNET1.1 HAVE_HTP_URI_NORMALIZE_HOOK PCRE_JIT HAVE_NSS HTTP2_DECOMPRESSION HAVE_LUA HAVE_JA3 HAVE_JA4 HAVE_LUAJIT HAVE_LIBJANSSON TLS TLS_C11 MAGIC RUST POPCNT64
-SIMD support: SSE_4_2 SSE_4_1 SSE_3 SSE_2
-Atomic intrinsics: 1 2 4 8 16 byte(s)
-64-bits, Little-endian architecture`
+
 - [ ] Extrait `suricata.yaml` (HOME_NET, af-packet, eve-log alert)
 - [ ] `grep -c "^alert" ...suricata.rules`
 - [ ] `systemctl status suricata` + log “all AFP capture threads are running”
