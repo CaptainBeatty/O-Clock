@@ -154,6 +154,18 @@ Suricata pleinement opérationnel.
 
 # Étape 2 : Générer un événement de test
 
+## Étape 2.1 : Déclencher une règle connue
+
+`alert ip any any -> any any (msg:"GPL ATTACK_RESPONSE id check returned root"; content:"uid=0|28|root|29|"; classtype:bad-unknown; sid:2100498; rev:7;)`
+
+## Étape 2.2 : Vérifier l'alerte dans les logs
+
+`cat /var/log/suricata/fast.log`\
+`cat /var/log/suricata/fast.log
+02/26/2026-12:41:48.218175  [**] [1:2100498:7] GPL ATTACK_RESPONSE id check returned root [**] [Classification: Potentially Bad Traffic] [Priority: 2] {TCP} 18.239.36.127:80 -> 10.0.0.50:33518`
+
+Il a détecté le contenu uid=0(root) dans la réponse HTTP et a déclenché la règle correspondante.
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
