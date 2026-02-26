@@ -342,11 +342,36 @@ Résultat : La règle est chargée ✅
 
 ## B.3 : Déclencher la règle personnalisée
 
+Dans le cadre du TP, nous effectuons le test sur la machine Suricata : 
+
 `Sur Suricata : nc -l -p 8080`
 
 ## B.4 : Vérifier dans Suricata
 
 ![dashboard](verif.png)
+
+## B.5 : Vérifier la corrélation dans Wazuh
+
+Dans le Dashboard Wazuh :
+
+![dashboard](correl.png)
+
+Résultat : La corrélation est complète ✅
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
