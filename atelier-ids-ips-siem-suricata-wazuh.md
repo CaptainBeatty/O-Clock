@@ -184,6 +184,26 @@ Un SIEM (Security Information and Event Management) est une plateforme qui colle
 
 ## Étape 3.2 : Créer la VM Wazuh
 
+| Onglet   | Champ   | Valeur                          |
+|----------|---------|----------------------------------|
+| Général  | VM ID   | 401 (ou autre libre)            |
+| Général  | Nom     | Wazuh                           |
+| OS       | ISO Image | debian-13 (ou ubuntu-24.04 server) |
+| Système  | Type    | Linux                            |
+| Disque   | Taille  | 50 Go                            |
+| CPU      | Cœurs   | 2 (idéalement 4)                 |
+| Mémoire  | RAM     | 8192 Mo (8 Go)                   |
+| Réseau   | Bridge  | vmbr2                            |
+| Réseau   | Modèle  | VirtIO                           |
+
+
+
+
+
+
+
+
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
