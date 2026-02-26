@@ -16,7 +16,7 @@ Mettre en place une chaîne SOC : **détection (Suricata)** → **collecte (Wazu
 
 # Étape 0 — Pré-check infra & capacité
 ## Actions
-- [ ] Vérifier RAM dispo (>= 10 Go sur l’hôte Proxmox)
+- [*] Vérifier RAM dispo (>= 10 Go sur l’hôte Proxmox)
 - [ ] Vérifier vmbr2 opérationnel + routage/NAT via pfSense
 - [ ] Valider DNS/Internet sortant depuis le LAN
 
