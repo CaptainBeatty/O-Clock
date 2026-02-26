@@ -83,9 +83,33 @@ SIMD support: SSE_4_2 SSE_4_1 SSE_3 SSE_2
 Atomic intrinsics: 1 2 4 8 16 byte(s)
 64-bits, Little-endian architecture`
 
-- [ ] Configurer HOME_NET, interface capture, EVE JSON enrichi
-- [ ] Télécharger règles ET Open
-- [ ] Démarrer service + valider écoute
+## Étape 1.5 : Configurer Suricata
+
+### Paramètres ajustés
+
+- HOME_NET défini sur 10.0.0.0/16
+- Interface capture : eth0 (AF_PACKET)
+- Logs EVE JSON enrichis activés :
+  - payload
+  - payload-printable
+  - packet
+  - tagged-packets
+
+### Validation
+
+Commande exécutée :
+
+suricata -T -c /etc/suricata/suricata.yaml
+
+Résultat :
+
+✅ Configuration chargée avec succès
+
+### Conclusion
+
+Configuration IDS conforme pour détection + intégration SIEM.
+
+## Étape 1.6 : Télécharger les règles
 
 ## Preuves (captures)
 ![ip a](ipa.png)
