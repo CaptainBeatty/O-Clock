@@ -121,6 +121,37 @@ Configuration IDS conforme pour détection + intégration SIEM.
 `systemctl start suricata`\
 `systemctl status suricata`
 
+## Validation Suricata — Chargement des règles
+
+### Incident observé
+Log initial :
+
+"1 rule files specified, but no rules were loaded"
+
+### Analyse
+Le moteur Suricata était actif mais aucune règle n’était chargée.
+
+Impact : IDS aveugle (aucune détection possible).
+
+### Action corrective
+- Arrêt du service Suricata
+- Nettoyage complet du répertoire `/var/lib/suricata/rules`
+- Reconstruction du ruleset via `suricata-update`
+- Redémarrage du moteur
+
+### Validation
+Log Suricata :
+
+"48776 rules successfully loaded"
+
+`root@suricata-julien:~# suricata -T -c /etc/suricata/suricata.yaml`\
+`i: suricata: This is Suricata version 7.0.10 RELEASE running in SYSTEM mode`\
+`i: suricata: Configuration provided was successfully loaded. Exiting.`\
+
+### Conclusion
+Le moteur IDS charge correctement le jeu de signatures.
+Suricata pleinement opérationnel.
+
 ## Preuves (captures)
 ![ip a](ipa.png)
 
