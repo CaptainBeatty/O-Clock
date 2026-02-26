@@ -283,7 +283,7 @@ Dans le Dashboard Wazuh (https://10.0.0.40) :
 
 ![dashboard](checkalert.png)
 
-
+Résultat : L'alerte est visible ✅
 
 
 
