@@ -189,8 +189,7 @@ Ce fichier définit :
 
 Après modification de la configuration, j’ai redémarré Nagios pour appliquer les changements.
 
-📸 Capture recommandée  
-`images/tp-nagios/14-windows-host-config.png`
+![Vérification configuration HAProxy](../images/tp-nagios/14-windows-host-config.png))
 
 ---
 
