@@ -54,14 +54,6 @@ haproxy -c -f /etc/haproxy/haproxy.cfg
 
 ---
 
-### Capture — Interface de statistiques HAProxy
-
-Cette interface permet de vérifier l’état des backends et la répartition du trafic.
-
-![Statistiques HAProxy](../images/anti-ddos-rate-limiting/02-haproxy-stats.png)
-
----
-
 # 2 — Tests de charge
 
 Afin de tester le comportement de l’infrastructure, j’ai installé les outils de génération de charge :
