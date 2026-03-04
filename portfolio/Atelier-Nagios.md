@@ -36,7 +36,7 @@ J’ai installé les dépendances nécessaires au fonctionnement de Nagios Core,
 Ces composants sont indispensables pour compiler Nagios et afficher son interface web.
 
 📸 Capture recommandée  
-(../images/tp-nagios/02-install-dependencies.png)
+![Vérification configuration HAProxy](../images/tp-nagios/02-install-dependencies.png))
 
 ---
 
