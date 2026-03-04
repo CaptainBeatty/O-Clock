@@ -130,8 +130,7 @@ Après compilation et installation, les plugins ont été installés dans :
 
 ```
 
-📸 Capture recommandée  
-`images/tp-nagios/09-nagios-plugins.png`
+![Vérification configuration HAProxy](../images/tp-nagios/09-nagios-plugins.png))
 
 ---
 
