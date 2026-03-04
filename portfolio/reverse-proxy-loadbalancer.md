@@ -133,10 +133,6 @@ Le load-balancing est configuré en **Round Robin** et inclut des **health check
 
 En rafraîchissant la page plusieurs fois, les réponses proviennent successivement de web1, web2 et web3.
 
-![Test Round Robin](../images/reverse-proxy-loadbalancer/11-load-balancing.png)
-
-*Rotation des serveurs backend démontrant le load-balancing.*
-
 ---
 
 ## Test de haute disponibilité
