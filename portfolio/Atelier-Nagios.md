@@ -36,7 +36,7 @@ J’ai installé les dépendances nécessaires au fonctionnement de Nagios Core,
 Ces composants sont indispensables pour compiler Nagios et afficher son interface web.
 
 📸 Capture recommandée  
-![Vérification configuration HAProxy](../images/tp-nagios/02-install-dependencies.png))
+![Vérification configuration HAProxy](../images/tp-nagios/02-install-dependencies.png)
 
 ---
 
@@ -61,7 +61,7 @@ Ces éléments permettent à Nagios et Apache de communiquer correctement via le
 
 J’ai ensuite installé les fichiers binaires, les scripts de démarrage et les fichiers de configuration par défaut.
 
-![Vérification configuration HAProxy](../images/tp-nagios/04-install-nagios.png))
+![Vérification configuration HAProxy](../images/tp-nagios/04-install-nagios.png)
 
 ---
 
@@ -86,7 +86,7 @@ Afin de sécuriser l’accès à l’interface web, j’ai créé l’utilisateu
 Cet utilisateur est utilisé pour se connecter à l’interface de supervision.
 
 
-![Vérification configuration HAProxy](../images/tp-nagios/06-create-nagios-user.png))
+![Vérification configuration HAProxy](../images/tp-nagios/06-create-nagios-user.png)
 
 ---
 
@@ -108,7 +108,7 @@ http://IP_SERVEUR/nagios
 
 L’interface permet de visualiser l’état des hôtes et des services supervisés.
 
-![Vérification configuration HAProxy](../images/tp-nagios/07-nagios-service.png))
+![Vérification configuration HAProxy](../images/tp-nagios/07-nagios-service.png)
 
 ---
 
@@ -130,7 +130,7 @@ Après compilation et installation, les plugins ont été installés dans :
 
 ```
 
-![Vérification configuration HAProxy](../images/tp-nagios/09-nagios-plugins.png))
+![Vérification configuration HAProxy](../images/tp-nagios/09-nagios-plugins.png)
 
 ---
 
@@ -153,7 +153,8 @@ Lors de l’installation, j’ai configuré :
 
 J’ai vérifié que le service **NCPA** était actif dans le gestionnaire des services Windows.
 
-![Vérification configuration HAProxy](../images/tp-nagios/12-ncpa-service-running.png))
+![Vérification configuration HAProxy](../images/tp-nagios/12-ncpa-service-running.png)
+
 ---
 
 ## 3.3 Test de l’interface NCPA
@@ -189,7 +190,7 @@ Ce fichier définit :
 
 Après modification de la configuration, j’ai redémarré Nagios pour appliquer les changements.
 
-![Vérification configuration HAProxy](../images/tp-nagios/14-windows-host-config.png))
+![Vérification configuration HAProxy](../images/tp-nagios/14-windows-host-config.png)
 
 ---
 
@@ -207,7 +208,7 @@ J’ai ensuite configuré le **token API** dans le fichier :
 
 ```
 
-![Vérification configuration HAProxy](../images/tp-nagios/15-ncpa-install-ubuntu.png))
+![Vérification configuration HAProxy](../images/tp-nagios/15-ncpa-install-ubuntu.png)
 
 ---
 
@@ -215,7 +216,7 @@ J’ai ensuite configuré le **token API** dans le fichier :
 
 J’ai démarré et activé le service NCPA afin qu’il se lance automatiquement au démarrage du système.
 
-![Vérification configuration HAProxy](../images/tp-nagios/16-ncpa-service-ubuntu.png))
+![Vérification configuration HAProxy](../images/tp-nagios/16-ncpa-service-ubuntu.png)
 
 ---
 
@@ -240,7 +241,7 @@ check_ncpa.py
 
 Ce plugin agit comme une interface entre Nagios Core et les agents NCPA installés sur les serveurs supervisés.
 
-![Vérification configuration HAProxy](../images/tp-nagios/18-install-check-ncpa.png))
+![Vérification configuration HAProxy](../images/tp-nagios/18-install-check-ncpa.png)
 
 ---
 
@@ -255,7 +256,7 @@ Après rechargement de la configuration Nagios, j’ai vérifié dans l’interf
 
 Les métriques CPU et mémoire remontent correctement via l’agent NCPA.
 
-![Vérification configuration HAProxy](../images/tp-nagios/19-final-monitoring-dashboard.png))
+![Vérification configuration HAProxy](../images/tp-nagios/19-final-monitoring-dashboard.png)
 
 ---
 
