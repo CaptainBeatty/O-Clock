@@ -207,8 +207,7 @@ J’ai ensuite configuré le **token API** dans le fichier :
 
 ```
 
-📸 Capture recommandée  
-`images/tp-nagios/15-ncpa-install-ubuntu.png`
+![Vérification configuration HAProxy](../images/tp-nagios/15-ncpa-install-ubuntu.png))
 
 ---
 
