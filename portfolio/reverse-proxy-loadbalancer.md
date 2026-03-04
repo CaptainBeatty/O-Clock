@@ -2,217 +2,164 @@
 
 ## Contexte technique
 
-Dans le cadre de ce TP réalisé sur mon environnement **Proxmox**, j’ai déployé une architecture web distribuée composée de plusieurs serveurs Apache placés derrière un **reverse-proxy** et un **load-balancer**. L’objectif était d’illustrer la terminaison TLS, la répartition de charge et la haute disponibilité. 
+Dans le cadre de ce TP réalisé sur mon environnement Proxmox, j’ai déployé une architecture web distribuée composée de plusieurs serveurs Apache placés derrière un reverse-proxy et un load-balancer. L’objectif était d’illustrer la terminaison TLS, la répartition de charge et la haute disponibilité.
 
 L’infrastructure comprend :
 
-* **3 serveurs web Apache** (web1, web2, web3)
-* **1 serveur proxy** capable d’assurer plusieurs rôles (Nginx, Apache et HAProxy)
-* **1 poste client Windows 11** permettant les tests d’accès
+- 3 serveurs web Apache (web1, web2, web3)
+- 1 serveur proxy capable d’assurer plusieurs rôles (Nginx, Apache et HAProxy)
+- 1 poste client Windows 11 permettant les tests
 
-Tous les conteneurs sont connectés au réseau **LAN A (vmbr2 — 10.0.0.0/16)**.
+Tous les conteneurs sont connectés au réseau LAN A (vmbr2 — 10.0.0.0/16).
 
 ---
 
 # 1 — Création de l’infrastructure Proxmox
 
-J’ai commencé par déployer **quatre conteneurs LXC Debian 12** dans Proxmox afin de constituer l’architecture du lab.
+J’ai commencé par déployer quatre conteneurs LXC Debian 12 dans Proxmox afin de constituer l’architecture du lab.
 
 Chaque conteneur a été configuré avec :
 
-* un **hostname distinct**
-* une **adresse IP statique**
-* une **passerelle vers le firewall pfSense**
-* un **DNS public**
+- un hostname distinct
+- une adresse IP statique
+- une passerelle vers le firewall pfSense
+- un DNS public
 
-Une fois les conteneurs déployés, j’ai vérifié la **connectivité réseau** depuis chaque machine vers :
+Une fois les conteneurs déployés, j’ai vérifié la connectivité réseau depuis chaque machine vers la passerelle et Internet.
 
-* la passerelle
-* Internet
+![Création des conteneurs Proxmox](../images/reverse-proxy-loadbalancer/01-proxmox-containers.png)
 
-Cette vérification permet de confirmer que le **NAT et le routage fonctionnent correctement**.
-
-📸 **Capture recommandée**
-
-* Configuration réseau d’un conteneur dans Proxmox
-* Test de connectivité (ping gateway / Internet)
+*Création et configuration des conteneurs LXC dans Proxmox.*
 
 ---
 
 # 2 — Déploiement des serveurs web Apache
 
-J’ai installé le serveur web **Apache** sur les trois conteneurs applicatifs.
+J’ai installé le serveur web Apache sur les trois conteneurs applicatifs.
 
 Chaque serveur héberge une page HTML distincte permettant d’identifier visuellement quel serveur répond à la requête :
 
-* **web1** : page bleue
-* **web2** : page verte
-* **web3** : page rouge
+- web1 : page bleue
+- web2 : page verte
+- web3 : page rouge
 
-Cette différenciation visuelle est utilisée plus tard pour **observer le comportement du load-balancing**.
+Cette différenciation visuelle permet d’observer le comportement du load-balancing.
 
-J’ai ensuite vérifié l’accessibilité de chaque serveur depuis le poste client via HTTP.
+### WEB1
 
-📸 **Captures recommandées**
+![Page WEB1](../images/reverse-proxy-loadbalancer/03-web1-http.png)
 
-* Page web de **web1**
-* Page web de **web2**
-* Page web de **web3**
+*Serveur Apache web1 accessible en HTTP.*
+
+### WEB2
+
+![Page WEB2](../images/reverse-proxy-loadbalancer/04-web2-http.png)
+
+*Serveur Apache web2 accessible en HTTP.*
+
+### WEB3
+
+![Page WEB3](../images/reverse-proxy-loadbalancer/05-web3-http.png)
+
+*Serveur Apache web3 accessible en HTTP.*
 
 ---
 
 # 3 — Mise en place du HTTPS sur Apache
 
-Afin d’introduire le chiffrement TLS, j’ai généré un **certificat auto-signé** sur le serveur web1.
+Afin d’introduire le chiffrement TLS, j’ai généré un certificat auto-signé sur le serveur web1 et activé le module SSL d’Apache.
 
-Après avoir activé le module SSL d’Apache, j’ai configuré un **VirtualHost HTTPS** permettant d’exposer le site sur le port **443**.
+Après configuration du VirtualHost HTTPS, j’ai vérifié le fonctionnement depuis le navigateur.
 
-Un test depuis le navigateur confirme :
+![Avertissement certificat HTTPS](../images/reverse-proxy-loadbalancer/06-https-warning.png)
 
-* l’activation du **chiffrement HTTPS**
-* l’apparition d’un **avertissement navigateur** lié au certificat auto-signé
-
-Ce comportement est normal dans un environnement de laboratoire.
-
-📸 **Captures recommandées**
-
-* Avertissement navigateur HTTPS
-* Détails du certificat TLS
+*Avertissement de sécurité lié au certificat auto-signé.*
 
 ---
 
 # 4 — Mise en place d’un reverse-proxy avec Nginx
 
-J’ai installé **Nginx** sur le conteneur proxy afin de le configurer comme **reverse-proxy**.
+J’ai installé Nginx sur le conteneur proxy afin de le configurer comme reverse-proxy.
 
-Le proxy redirige les requêtes HTTP vers les différents serveurs web selon l’URL demandée :
+Les requêtes sont redirigées vers les différents serveurs web selon l’URL :
 
-* `/web1` → serveur web1
-* `/web2` → serveur web2
-* `/web3` → serveur web3
+- `/web1`
+- `/web2`
+- `/web3`
 
-Cette architecture permet :
+![Interface du reverse proxy](../images/reverse-proxy-loadbalancer/07-nginx-reverse-proxy.png)
 
-* de **masquer les serveurs back-end**
-* de centraliser l’accès web derrière une seule adresse IP
-
-Les tests depuis le poste client montrent que les requêtes transitent correctement par le proxy.
-
-📸 **Captures recommandées**
-
-* Page d’accueil du reverse-proxy
-* Accès aux trois sites via le proxy
+*Interface d’accueil du reverse-proxy Nginx.*
 
 ---
 
 # 5 — Activation du HTTPS sur le reverse-proxy
 
-J’ai ensuite configuré **Nginx avec un certificat TLS**, permettant d’assurer la **terminaison TLS** directement au niveau du proxy.
+Le reverse-proxy Nginx a ensuite été configuré pour supporter le HTTPS grâce à un certificat TLS auto-signé.
 
-Dans cette configuration :
+Le proxy assure ainsi la terminaison TLS tandis que les serveurs backend restent en HTTP.
 
-* le **client communique en HTTPS avec le proxy**
-* les **serveurs back-end restent en HTTP**
+![Proxy HTTPS](../images/reverse-proxy-loadbalancer/08-nginx-https.png)
 
-Cette architecture est très courante en production car elle :
-
-* simplifie la gestion des certificats
-* réduit la charge de chiffrement sur les serveurs applicatifs.
-
-Une redirection automatique **HTTP → HTTPS** a également été configurée.
-
-📸 **Capture recommandée**
-
-* Navigation HTTPS sur le proxy avec cadenas
+*Reverse-proxy Nginx fonctionnant en HTTPS.*
 
 ---
 
-# 6 — Mise en place d’un reverse-proxy Apache (comparaison)
+# 6 — Reverse-proxy Apache (comparaison)
 
-Afin de comparer les solutions, j’ai configuré **Apache comme reverse-proxy** sur le serveur proxy.
+Afin de comparer les solutions, j’ai configuré Apache comme reverse-proxy sur le port 8443.
 
-Pour éviter les conflits avec Nginx, Apache a été configuré pour écouter sur le **port 8443**.
+![Reverse proxy Apache](../images/reverse-proxy-loadbalancer/09-apache-reverse-proxy.png)
 
-Cette configuration permet d’observer que :
-
-* Apache peut assurer les mêmes fonctions qu’un reverse-proxy
-* la logique repose sur les directives **ProxyPass** et **ProxyPassReverse**
-
-Les tests montrent que les requêtes sont correctement redirigées vers les serveurs web.
-
-📸 **Capture recommandée**
-
-* Accès HTTPS via Apache sur le port 8443
+*Reverse-proxy Apache configuré sur le port 8443.*
 
 ---
 
-# 7 — Mise en place d’un load-balancer HAProxy
+# 7 — Mise en place du load-balancer HAProxy
 
-Dans la dernière étape, j’ai déployé **HAProxy** afin de mettre en place un **load-balancing entre les trois serveurs web**.
+J’ai ensuite déployé HAProxy afin de répartir les requêtes entre les trois serveurs web.
 
-La configuration repose sur :
+Le load-balancing est configuré en **Round Robin** et inclut des **health checks** pour détecter automatiquement les pannes.
 
-* un **frontend HTTPS**
-* un **backend contenant les trois serveurs Apache**
+![Interface HAProxy](../images/reverse-proxy-loadbalancer/10-haproxy-dashboard.png)
 
-L’algorithme utilisé est **Round Robin**, qui distribue les requêtes de manière équitable entre les serveurs.
-
-J’ai également activé :
-
-* les **health checks**
-* une **interface de statistiques** accessible via le navigateur.
-
-📸 **Captures recommandées**
-
-* Page de statistiques HAProxy
-* Exemple de rotation des serveurs lors des rafraîchissements
+*Interface de supervision HAProxy.*
 
 ---
 
 # 8 — Tests de fonctionnement
 
-Plusieurs scénarios de validation ont été réalisés.
+## Test de répartition de charge
 
-### Test de répartition de charge
+En rafraîchissant la page plusieurs fois, les réponses proviennent successivement de web1, web2 et web3.
 
-En rafraîchissant la page web plusieurs fois, les réponses proviennent successivement de :
+![Test Round Robin](../images/reverse-proxy-loadbalancer/11-load-balancing.png)
 
-* web1
-* web2
-* web3
-
-Cela confirme le fonctionnement du **load-balancing Round Robin**.
+*Rotation des serveurs backend démontrant le load-balancing.*
 
 ---
 
-### Test de haute disponibilité
+## Test de haute disponibilité
 
-J’ai simulé la panne d’un serveur web en arrêtant Apache sur **web2**.
+J’ai simulé la panne du serveur web2 en arrêtant le service Apache.
 
-HAProxy détecte automatiquement l’indisponibilité du serveur et cesse d’envoyer des requêtes vers celui-ci.
+HAProxy détecte automatiquement l’indisponibilité et redirige le trafic vers les autres serveurs.
 
-Après redémarrage du service Apache, le serveur est automatiquement **réintégré dans le pool de charge**.
+![Serveur DOWN](../images/reverse-proxy-loadbalancer/12-server-down.png)
 
-📸 **Captures recommandées**
-
-* Serveur DOWN dans les stats HAProxy
-* Retour du serveur en état UP
+*Détection automatique d’un serveur indisponible par HAProxy.*
 
 ---
 
 # Conclusion
 
-Ce TP m’a permis de mettre en œuvre plusieurs composants clés d’une architecture web moderne :
+Ce TP m’a permis de mettre en œuvre plusieurs composants essentiels d’une architecture web moderne :
 
-* **HTTPS et chiffrement TLS**
-* **Reverse-proxy**
-* **Terminaison TLS**
-* **Répartition de charge**
-* **Détection automatique des pannes**
-* **Supervision via HAProxy**
+- HTTPS et chiffrement TLS
+- Reverse-proxy
+- Terminaison TLS
+- Répartition de charge
+- Détection automatique des pannes
+- Supervision via HAProxy
 
-Cette architecture améliore à la fois la **sécurité**, la **scalabilité** et la **résilience** d’un service web.
-
----
-
-
+Cette architecture permet d’améliorer la sécurité, la résilience et la scalabilité d’un service web.
