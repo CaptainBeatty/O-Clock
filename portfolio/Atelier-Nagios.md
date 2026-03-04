@@ -77,8 +77,6 @@ J’ai ensuite :
 
 Cette interface web constitue le point central de supervision de l’infrastructure.
 
-![Vérification configuration HAProxy](../images/tp-nagios/04-install-nagios.png))
-
 ---
 
 ## 1.6 Création de l’utilisateur d’administration
@@ -88,7 +86,7 @@ Afin de sécuriser l’accès à l’interface web, j’ai créé l’utilisateu
 Cet utilisateur est utilisé pour se connecter à l’interface de supervision.
 
 📸 Capture recommandée  
-`images/tp-nagios/06-create-nagios-user.png`
+![Vérification configuration HAProxy](../images/tp-nagios/06-create-nagios-user.png))
 
 ---
 
