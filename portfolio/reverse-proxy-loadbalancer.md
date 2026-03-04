@@ -1,8 +1,3 @@
-Voici un **résumé professionnel en Markdown**, structuré pour un **rapport de stage d’administrateur systèmes et réseaux**.
-Le texte est **à la première personne**, concis, et indique **les captures réellement pertinentes pour un jury**.
-
----
-
 # Mise en place d’un reverse-proxy, load-balancer et HTTPS
 
 ## Contexte technique
