@@ -85,7 +85,7 @@ Afin de sécuriser l’accès à l’interface web, j’ai créé l’utilisateu
 
 Cet utilisateur est utilisé pour se connecter à l’interface de supervision.
 
-📸 Capture recommandée  
+
 ![Vérification configuration HAProxy](../images/tp-nagios/06-create-nagios-user.png))
 
 ---
@@ -93,9 +93,6 @@ Cet utilisateur est utilisé pour se connecter à l’interface de supervision.
 ## 1.7 Démarrage du service Nagios
 
 Une fois l’installation terminée, j’ai démarré le service Nagios et configuré son démarrage automatique au boot.
-
-📸 Capture recommandée  
-`images/tp-nagios/07-nagios-service.png`
 
 ---
 
@@ -111,8 +108,7 @@ http://IP_SERVEUR/nagios
 
 L’interface permet de visualiser l’état des hôtes et des services supervisés.
 
-📸 Capture recommandée  
-`images/tp-nagios/08-nagios-dashboard.png`
+![Vérification configuration HAProxy](../images/tp-nagios/07-nagios-service.png))
 
 ---
 
