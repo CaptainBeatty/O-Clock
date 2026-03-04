@@ -215,8 +215,7 @@ J’ai ensuite configuré le **token API** dans le fichier :
 
 J’ai démarré et activé le service NCPA afin qu’il se lance automatiquement au démarrage du système.
 
-📸 Capture recommandée  
-`images/tp-nagios/16-ncpa-service-ubuntu.png`
+![Vérification configuration HAProxy](../images/tp-nagios/16-ncpa-service-ubuntu.png))
 
 ---
 
@@ -226,9 +225,6 @@ J’ai ajouté un nouvel hôte dans la configuration Nagios en définissant :
 
 - l’adresse IP du serveur
 - les services supervisés (CPU, mémoire)
-
-📸 Capture recommandée  
-`images/tp-nagios/17-ubuntu-host-config.png`
 
 ---
 
@@ -244,8 +240,7 @@ check_ncpa.py
 
 Ce plugin agit comme une interface entre Nagios Core et les agents NCPA installés sur les serveurs supervisés.
 
-📸 Capture recommandée  
-`images/tp-nagios/18-install-check-ncpa.png`
+![Vérification configuration HAProxy](../images/tp-nagios/18-install-check-ncpa.png))
 
 ---
 
@@ -260,8 +255,7 @@ Après rechargement de la configuration Nagios, j’ai vérifié dans l’interf
 
 Les métriques CPU et mémoire remontent correctement via l’agent NCPA.
 
-📸 Capture recommandée  
-`images/tp-nagios/19-final-monitoring-dashboard.png`
+![Vérification configuration HAProxy](../images/tp-nagios/19-final-monitoring-dashboard.png))
 
 ---
 
@@ -275,34 +269,3 @@ Les métriques CPU et mémoire remontent correctement via l’agent NCPA.
 
 Cette architecture constitue une base fonctionnelle pour la supervision d’une infrastructure système et réseau.
 
-```
-
----
-
-## Nomenclature des captures recommandées
-
-Pour ton repo GitHub :
-
-```
-images/
-└── tp-nagios
-    ├── 01-update-system.png
-    ├── 02-install-dependencies.png
-    ├── 03-configure-nagios.png
-    ├── 04-install-nagios.png
-    ├── 05-apache-nagios.png
-    ├── 06-create-nagios-user.png
-    ├── 07-nagios-service.png
-    ├── 08-nagios-dashboard.png
-    ├── 09-nagios-plugins.png
-    ├── 10-ping-permission-fix.png
-    ├── 11-ncpa-install-windows.png
-    ├── 12-ncpa-service-running.png
-    ├── 13-ncpa-web-interface.png
-    ├── 14-windows-host-config.png
-    ├── 15-ncpa-install-ubuntu.png
-    ├── 16-ncpa-service-ubuntu.png
-    ├── 17-ubuntu-host-config.png
-    ├── 18-install-check-ncpa.png
-    └── 19-final-monitoring-dashboard.png
-```
