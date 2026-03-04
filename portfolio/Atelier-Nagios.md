@@ -134,17 +134,6 @@ Après compilation et installation, les plugins ont été installés dans :
 
 ---
 
-## Correction du plugin Ping
-
-Lors des tests, le plugin **check_ping** ne fonctionnait pas car la commande ping n’était accessible qu’au superutilisateur.
-
-J’ai corrigé ce problème en modifiant les permissions du binaire ping afin de permettre son exécution par Nagios.
-
-📸 Capture recommandée  
-`images/tp-nagios/10-ping-permission-fix.png`
-
----
-
 # 3. Supervision d’un serveur Windows avec NCPA
 
 ## 3.1 Installation de l’agent NCPA
@@ -158,18 +147,13 @@ Lors de l’installation, j’ai configuré :
 - un **token d’authentification**
 - le démarrage automatique du service
 
-📸 Capture recommandée  
-`images/tp-nagios/11-ncpa-install-windows.png`
-
 ---
 
 ## 3.2 Vérification du service NCPA
 
 J’ai vérifié que le service **NCPA** était actif dans le gestionnaire des services Windows.
 
-📸 Capture recommandée  
-`images/tp-nagios/12-ncpa-service-running.png`
-
+![Vérification configuration HAProxy](../images/tp-nagios/12-ncpa-service-running.png))
 ---
 
 ## 3.3 Test de l’interface NCPA
