@@ -48,9 +48,6 @@ J’ai ensuite configuré l’environnement de compilation en spécifiant l’em
 
 La compilation a ensuite été lancée afin de générer les binaires nécessaires au fonctionnement du logiciel.
 
-📸 Capture recommandée  
-`images/tp-nagios/03-configure-nagios.png`
-
 ---
 
 ## 1.4 Installation de Nagios et configuration des permissions
@@ -81,8 +78,7 @@ J’ai ensuite :
 
 Cette interface web constitue le point central de supervision de l’infrastructure.
 
-📸 Capture recommandée  
-`images/tp-nagios/05-apache-nagios.png`
+![Vérification configuration HAProxy](../images/tp-nagios/04-install-nagios.png))
 
 ---
 
