@@ -168,8 +168,7 @@ https://IP_WINDOWS:5693
 
 Cette interface permet de consulter les métriques système exposées par l’agent.
 
-📸 Capture recommandée  
-`images/tp-nagios/13-ncpa-web-interface.png`
+![Vérification configuration HAProxy](../images/tp-nagios/13-ncpa-web-interface.png)
 
 ---
 
