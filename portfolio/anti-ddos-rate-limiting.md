@@ -201,23 +201,3 @@ Cette approche permet de limiter efficacement les attaques par saturation tout e
 - Siege
 ```
 
----
-
-💡 **Conseil d’admin réseau pour ton portfolio GitHub :**
-
-Numérote **toujours tes captures** :
-
-```
-01-
-02-
-03-
-```
-
-Pourquoi ?
-
-* ordre clair
-* facile à relier au rapport
-* maintenable dans le temps
-
----
-
