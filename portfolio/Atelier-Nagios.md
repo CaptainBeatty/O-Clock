@@ -61,8 +61,7 @@ Ces éléments permettent à Nagios et Apache de communiquer correctement via le
 
 J’ai ensuite installé les fichiers binaires, les scripts de démarrage et les fichiers de configuration par défaut.
 
-📸 Capture recommandée  
-`images/tp-nagios/04-install-nagios.png`
+![Vérification configuration HAProxy](../images/tp-nagios/04-install-nagios.png))
 
 ---
 
