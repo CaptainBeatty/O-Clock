@@ -1,155 +1,201 @@
 
-# 🛡️ Sécurisation d’un serveur Debian 13 exposé sur Internet
+````md
+# Sécurisation d’un serveur Debian exposé sur Internet
 
-**Environnement :** VM Debian 13 minimale déployée sur hyperviseur Proxmox
-**Contexte :** Préparation à la mise en production d’un serveur municipal avec exigences minimales de durcissement
+## Contexte
 
----
+Dans le cadre de ce TP, j’ai été chargé de préparer un serveur Debian destiné à être exposé sur Internet pour héberger un futur service interne.  
+Avant sa mise en production, j’ai réalisé une **configuration sécurisée minimale** comprenant l’installation du service SSH, la mise en place d’un filtrage réseau avec iptables et le durcissement de la configuration SSH. :contentReference[oaicite:0]{index=0}
 
-## 🎯 Objectif de la mission
-
-J’ai réalisé un durcissement de base du système afin de :
-
-* Sécuriser l’accès distant via SSH
-* Restreindre strictement les connexions entrantes
-* Mettre en place un filtrage réseau persistant
-* Supprimer les vecteurs d’attaque évidents (root direct, mot de passe, etc.)
-
-L’approche a été volontairement minimaliste, robuste et conforme aux bonnes pratiques d’administration système.
+L’objectif était de limiter strictement les accès distants et de réduire la surface d’attaque du système.
 
 ---
 
-# 1️⃣ Installation et validation du service SSH
+# 1. Installation et configuration du service SSH
 
-## Actions réalisées
+J’ai commencé par installer le serveur **OpenSSH** afin de permettre l’administration distante du serveur.
 
-* Mise à jour des dépôts système
-* Installation du service **OpenSSH Server**
-* Vérification du statut du service
-* Vérification du port d’écoute
-* Activation du service au démarrage
+```bash
+apt update
+apt install -y openssh-server
+````
 
-## Résultat obtenu
+Après l’installation, j’ai vérifié que le service SSH était correctement lancé et qu’il écoutait bien sur le port par défaut.
 
-* Service SSH actif
-* Écoute sur le port 22
-* Service persistant au reboot
+```bash
+systemctl status ssh
+ss -tlnp | grep ssh
+```
 
-📸 **Capture d’écran nécessaire :**
+J’ai ensuite configuré le service afin qu’il **démarre automatiquement au démarrage du système**.
 
-* `systemctl status ssh`
-* `ss -tlnp | grep ssh`
+```bash
+systemctl enable ssh
+```
 
-Ces éléments permettent de prouver que le service est fonctionnel et correctement exposé.
+📸 **Capture recommandée :**
 
----
+```
+![SSH service status](../images/SC3E06-ssh-hardening/01-ssh-service-status.png)
+```
 
-# 2️⃣ Mise en place du filtrage réseau avec iptables
-
-## Stratégie appliquée
-
-J’ai mis en place une politique de sécurité restrictive :
-
-* Politique par défaut : **DROP en entrée**
-* Autorisation du loopback
-* Autorisation des connexions établies (ESTABLISHED, RELATED)
-* Autorisation du SSH uniquement depuis mon IP publique
-* Blocage implicite de toute autre tentative
-
-## Implémentation
-
-* Nettoyage complet des règles existantes
-* Application des politiques par défaut
-* Ajout des règles dans un ordre logique
-* Installation de `iptables-persistent`
-* Sauvegarde via `netfilter-persistent`
-
-## Résultat obtenu
-
-* Accès SSH restreint à une seule IP
-* Aucune autre connexion entrante autorisée
-* Règles persistantes après redémarrage
-
-📸 **Captures d’écran nécessaires :**
-
-* `iptables -L -n -v`
-* Fichier de règles sauvegardé (`/etc/iptables/rules.v4` si utilisé)
-* Test de connexion réussie depuis IP autorisée
-
-Ces éléments démontrent la cohérence et la persistance du filtrage.
+Cette capture montre le service **SSH actif et fonctionnel**.
 
 ---
 
-# 3️⃣ Durcissement du service SSH (Hardening)
+# 2. Mise en place du filtrage réseau avec iptables
 
-## Mesures appliquées
+Afin de limiter les accès au serveur, j’ai configuré un **pare-feu avec iptables**.
 
-Modification du fichier `/etc/ssh/sshd_config` :
+J’ai commencé par installer le mécanisme permettant de **rendre les règles persistantes après redémarrage**.
 
-* Désactivation du login root (`PermitRootLogin no`)
-* Désactivation de l’authentification par mot de passe (`PasswordAuthentication no`)
-* Activation explicite de l’authentification par clé (`PubkeyAuthentication yes`)
-* Restriction des utilisateurs autorisés (`AllowUsers utilisateur`)
+```bash
+apt install -y iptables-persistent
+```
 
-## Sécurisation de l’accès
+Ensuite, j’ai nettoyé les règles existantes afin de repartir d’une configuration propre.
 
-* Génération d’une clé SSH de type **ed25519**
-* Déploiement de la clé publique sur le serveur
-* Test de connexion par clé
-* Validation de la syntaxe avant rechargement (`sshd -t`)
-* Rechargement du service sans interruption
+```bash
+iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+```
 
-## Résultat obtenu
+J’ai appliqué une **politique de sécurité restrictive**, bloquant par défaut les connexions entrantes.
 
-* Accès root distant impossible
-* Authentification par mot de passe désactivée
-* Accès strictement limité à un utilisateur défini
-* Authentification uniquement par clé asymétrique
+```bash
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+```
 
-📸 **Captures d’écran nécessaires :**
+J’ai ensuite ajouté les règles nécessaires au fonctionnement normal du système.
 
-* Extrait pertinent du `sshd_config`
-* Test de connexion SSH réussi
-* Message d’échec lors d’une tentative root ou mot de passe
+Autorisation du trafic local (loopback) :
 
-Ces preuves sont essentielles pour démontrer le durcissement réel et non théorique.
+```bash
+iptables -A INPUT -i lo -j ACCEPT
+```
+
+Autorisation des connexions déjà établies :
+
+```bash
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+```
+
+Autorisation de l’accès SSH **uniquement depuis mon adresse IP** :
+
+```bash
+iptables -A INPUT -p tcp -s X.X.X.X --dport 22 -j ACCEPT
+```
+
+J’ai vérifié que les règles étaient correctement appliquées.
+
+```bash
+iptables -L -n -v
+```
+
+Enfin, j’ai sauvegardé la configuration pour assurer sa persistance.
+
+```bash
+netfilter-persistent save
+```
+
+📸 **Captures recommandées :**
+
+```
+![iptables rules](../images/SC3E06-ssh-hardening/02-iptables-rules.png)
+
+```
+
+Ces captures permettent de vérifier :
+
+* la **politique DROP par défaut**
+* la **restriction SSH à une IP spécifique**
 
 ---
 
-# 🔐 Bonus éventuels réalisés (si applicable)
+# 3. Durcissement de la configuration SSH
 
-* Modification du port SSH
-* Création d’un utilisateur administrateur avec droits sudo
-* Politique iptables enrichie
+Afin de renforcer la sécurité de l’accès distant, j’ai procédé à un **durcissement de la configuration SSH**.
 
-📸 Capture à prévoir si modification du port ou création utilisateur sudo.
+J’ai commencé par générer une **paire de clés cryptographiques** sur mon poste d’administration.
+
+```bash
+ssh-keygen -t ed25519 -C "admin@mairie"
+```
+
+Puis j’ai copié la clé publique sur le serveur.
+
+```bash
+ssh-copy-id utilisateur@IP_DU_SERVEUR
+```
+
+J’ai ensuite modifié la configuration du serveur SSH.
+
+```bash
+nano /etc/ssh/sshd_config
+```
+
+Les paramètres suivants ont été appliqués :
+
+```
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+AllowUsers utilisateur
+```
+
+Ces réglages permettent :
+
+* d’interdire la connexion directe de **root**
+* de désactiver l’authentification par **mot de passe**
+* d’autoriser uniquement l’authentification par **clé SSH**
+* de limiter les connexions à un **utilisateur spécifique**
+
+Avant d’appliquer les modifications, j’ai vérifié la syntaxe du fichier de configuration.
+
+```bash
+sshd -t
+```
+
+Puis j’ai rechargé le service.
+
+```bash
+systemctl reload ssh
+```
+
+Enfin, j’ai testé une nouvelle connexion SSH tout en conservant une session ouverte afin d’éviter tout verrouillage du serveur.
+
+```bash
+ssh utilisateur@IP_DU_SERVEUR
+```
+
+📸 **Captures recommandées :**
+
+```
+![sshd config](../images/SC3E06-ssh-hardening/04-sshd-config.png)
+![ssh key auth](../images/SC3E06-ssh-hardening/05-ssh-key-auth.png)
+```
+
+Ces captures illustrent :
+
+* la configuration sécurisée du fichier `sshd_config`
+* une connexion SSH réussie via **authentification par clé**
 
 ---
 
-# 📊 Synthèse technique
+# Résultat
 
-| Axe                  | Mesure appliquée              | Niveau de criticité |
-| -------------------- | ----------------------------- | ------------------- |
-| Service SSH          | Installation + activation     | Critique            |
-| Filtrage réseau      | Politique DROP + IP autorisée | Critique            |
-| Root login           | Désactivé                     | Critique            |
-| Auth mot de passe    | Désactivée                    | Critique            |
-| Persistance firewall | Activée                       | Critique            |
+À l’issue de cette configuration :
 
----
+* le service **SSH est installé et opérationnel**
+* l’accès au serveur est **strictement limité par iptables**
+* l’authentification par **mot de passe est désactivée**
+* l’accès root distant est **interdit**
+* seuls les utilisateurs autorisés disposant d’une **clé SSH valide** peuvent se connecter
 
-# ✅ Conclusion
+Le serveur dispose ainsi d’un **niveau de sécurisation minimal adapté à une exposition sur Internet**.
 
-Le serveur Debian a été sécurisé selon une logique de défense en profondeur :
-
-1. Réduction de la surface d’exposition réseau
-2. Restriction stricte des accès
-3. Suppression des mécanismes d’authentification faibles
-4. Validation systématique avant fermeture de session
-
-L’environnement est désormais conforme aux exigences minimales de sécurité pour une mise en production contrôlée.
-
----
-
-
-
+```
