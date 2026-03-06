@@ -1,5 +1,5 @@
 
-````md
+
 # Sécurisation d’un serveur Debian exposé sur Internet
 
 ## Contexte
@@ -33,7 +33,7 @@ J’ai ensuite configuré le service afin qu’il **démarre automatiquement au 
 systemctl enable ssh
 ```
 
-📸 **Capture recommandée :**
+📸 
 
 ```
 ![SSH service status](../images/SC3E06-ssh-hardening/01-ssh-service-status.png)
