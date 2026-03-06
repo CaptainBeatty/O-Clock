@@ -35,9 +35,9 @@ systemctl enable ssh
 
 📸 
 
-```
+
 ![SSH service status](../images/SC3E06-ssh-hardening/01-ssh-service-status.png)
-```
+
 
 Cette capture montre le service **SSH actif et fonctionnel**.
 
@@ -102,12 +102,12 @@ Enfin, j’ai sauvegardé la configuration pour assurer sa persistance.
 netfilter-persistent save
 ```
 
-📸 **Captures recommandées :**
+📸 
 
-```
+
 ![iptables rules](../images/SC3E06-ssh-hardening/02-iptables-rules.png)
 
-```
+
 
 Ces captures permettent de vérifier :
 
@@ -172,12 +172,12 @@ Enfin, j’ai testé une nouvelle connexion SSH tout en conservant une session o
 ssh utilisateur@IP_DU_SERVEUR
 ```
 
-📸 **Captures recommandées :**
+📸 
 
-```
+
 ![sshd config](../images/SC3E06-ssh-hardening/04-sshd-config.png)
 ![ssh key auth](../images/SC3E06-ssh-hardening/05-ssh-key-auth.png)
-```
+
 
 Ces captures illustrent :
 
