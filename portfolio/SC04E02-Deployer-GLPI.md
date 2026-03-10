@@ -1,5 +1,6 @@
 # Déploiement de GLPI avec Docker Compose
-
+## Exercice
+https://github.com/CaptainBeatty/O-Clock/blob/main/portfolio/TP/SC04E02-Deployer-GLPI-CaptainBeatty.md
 ## Objectif
 J’ai déployé une instance de GLPI de manière conteneurisée avec Docker Compose.  
 L’environnement comprend une base de données MariaDB, l’application GLPI et, en bonus, Adminer pour l’administration de la base.
