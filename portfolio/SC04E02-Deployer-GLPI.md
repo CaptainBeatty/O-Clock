@@ -49,6 +49,8 @@ Les données sont persistantes grâce aux volumes Docker et les services communi
 
 ## Captures d’écran conseillées
 - Création du dossier de projet
+
+  images/01-creation-dossier-glpi-docker.png
 - Conteneur MariaDB démarré
 - Logs MariaDB
 - Fichier `docker-compose.yml`
