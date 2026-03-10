@@ -68,7 +68,6 @@ J’ai configuré un `healthcheck` sur MariaDB afin que GLPI ne tente de démarr
 
 ![texte alternatif](../images/12-fichier-env-et-gitignore.png)
 
-![texte alternatif](../images/13-healthcheck-mariadb.png)
 
 ## Résultat
 À la fin du TP, la stack Docker permet de déployer GLPI de manière reproductible, lisible et maintenable.  
