@@ -167,6 +167,3 @@ Cette démarche permet de comprendre comment un serveur peut être analysé **du
 
 ```
 
-
-Si tu veux, je peux aussi te montrer **une petite amélioration qui rend ce Markdown beaucoup plus professionnel visuellement sur GitHub** (table des matières automatique + badges + structure SOC). C’est exactement le genre de détail qui fait ressortir un profil cybersécurité.
-```
