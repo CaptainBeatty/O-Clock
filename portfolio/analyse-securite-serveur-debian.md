@@ -17,7 +17,7 @@ Commande utilisée :
 
 ```bash
 ip a
-
+```
 Cette commande permet de vérifier l’interface réseau et l’adresse IP du serveur.
 
 Le serveur possède l'adresse IP :
@@ -47,9 +47,9 @@ La surface d’attaque du serveur est relativement limitée puisque seuls deux s
 Une fois les services détectés, il est possible d’identifier leurs versions.
 
 Commande utilisée :
-
+```
 nmap -sV 10.0.0.130
-
+```
 Résultat :
 
 Service	Version
@@ -73,9 +73,9 @@ Le scan n’a pas identifié de vulnérabilités critiques au niveau du serveur 
 Afin d’identifier les informations divulguées par le serveur web, une requête HTTP a été effectuée.
 
 Commande utilisée :
-
+```
 curl -I http://10.0.0.130
-
+```
 Le serveur divulgue l’information suivante :
 
 Server: Apache/2.4.66 (Debian)
