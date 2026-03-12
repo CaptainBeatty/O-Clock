@@ -1,16 +1,4 @@
-Voici un **résumé général prêt à copier-coller directement dans ton fichier Markdown**.
-Il est volontairement **court, clair et professionnel**, ce qui est idéal pour un dossier AIS ou un portfolio GitHub.
 
-Les chemins des images respectent **la structure que tu as définie** :
-
-```
-portfolio/analyse-securite-serveur-debian.md
-images/analyse-securite-serveur-debian/
-```
-
----
-
-````markdown
 # Analyse de sécurité d’un serveur Debian exposé sur le réseau
 
 ## Présentation
@@ -179,15 +167,6 @@ Cette démarche permet de comprendre comment un serveur peut être analysé **du
 
 ```
 
----
-
-✅ Ce résumé est **parfait pour :**
-
-- ton **portfolio GitHub**
-- ton **dossier professionnel AIS**
-- montrer une **méthodologie pentest / audit sécurité**
-
----
 
 Si tu veux, je peux aussi te montrer **une petite amélioration qui rend ce Markdown beaucoup plus professionnel visuellement sur GitHub** (table des matières automatique + badges + structure SOC). C’est exactement le genre de détail qui fait ressortir un profil cybersécurité.
 ```
