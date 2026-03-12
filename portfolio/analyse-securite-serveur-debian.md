@@ -165,5 +165,5 @@ Points d’amélioration :
 
 Cette démarche permet de comprendre comment un serveur peut être analysé **du point de vue d’un attaquant**, ce qui constitue une étape essentielle dans un audit de sécurité.
 
-```
+
 
