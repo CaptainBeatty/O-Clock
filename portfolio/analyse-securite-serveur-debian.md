@@ -1,15 +1,28 @@
-# Analyse de sécurité d’un serveur Debian exposé sur le réseau
+Voici un **résumé général prêt à copier-coller directement dans ton fichier Markdown**.
+Il est volontairement **court, clair et professionnel**, ce qui est idéal pour un dossier AIS ou un portfolio GitHub.
 
-## Contexte
+Les chemins des images respectent **la structure que tu as définie** :
 
-Dans le cadre de ma formation d’Administrateur d’Infrastructures Sécurisées, j’ai réalisé une analyse de sécurité d’un serveur Debian accessible sur le réseau.  
-L’objectif de cet atelier était d’observer le serveur **du point de vue d’un attaquant**, afin d’identifier les services exposés, les informations divulguées et les éventuelles vulnérabilités.
-
-Cette démarche correspond à la **phase de reconnaissance utilisée lors d’un audit de sécurité ou d’un pentest**.
+```
+portfolio/analyse-securite-serveur-debian.md
+images/analyse-securite-serveur-debian/
+```
 
 ---
 
-# 1. Identification du serveur
+````markdown
+# Analyse de sécurité d’un serveur Debian exposé sur le réseau
+
+## Présentation
+
+Dans le cadre de cet atelier, j’ai réalisé une analyse de sécurité d’un serveur Debian accessible sur le réseau.  
+L’objectif était d’observer le serveur **du point de vue d’un attaquant**, afin d’identifier les services exposés, les informations divulguées et les éventuelles vulnérabilités.
+
+Cette approche correspond à la **phase de reconnaissance utilisée lors d’un audit de sécurité ou d’un pentest**.
+
+---
+
+# Identification du serveur
 
 La première étape consiste à identifier la machine cible ainsi que sa configuration réseau.
 
@@ -17,135 +30,164 @@ Commande utilisée :
 
 ```bash
 ip a
+````
+
+![Identification du serveur Debian](../images/analyse-securite-serveur-debian/capture-01-identification-serveur-debian.png)
+
+Le serveur possède l’adresse IP :
+
 ```
-Cette commande permet de vérifier l’interface réseau et l’adresse IP du serveur.
-
-Le serveur possède l'adresse IP :
-
 10.0.0.130
+```
 
-Il est hébergé dans un environnement virtualisé.
+Il s’agit d’une machine virtuelle hébergée dans un environnement de virtualisation.
 
-2. Analyse de la surface d’exposition réseau
+---
 
-Un attaquant commence généralement par identifier les ports ouverts sur la machine cible.
+# Analyse des ports exposés
+
+Afin d’identifier les services accessibles sur le serveur, un scan réseau a été réalisé avec l’outil **Nmap**.
 
 Commande utilisée :
 
+```bash
 nmap 10.0.0.130
+```
+
+![Scan Nmap des ports ouverts](../images/analyse-securite-serveur-debian/capture-02-scan-nmap-ports-ouverts.png)
 
 Résultat :
 
-Port	Service
-22	SSH
-80	HTTP
+| Port | Service |
+| ---- | ------- |
+| 22   | SSH     |
+| 80   | HTTP    |
 
-La surface d’attaque du serveur est relativement limitée puisque seuls deux services sont accessibles.
+Le serveur présente une surface d’exposition relativement limitée.
 
-3. Identification des versions des services
+---
 
-Une fois les services détectés, il est possible d’identifier leurs versions.
+# Identification des services et versions
+
+Afin d’obtenir plus d’informations sur les services détectés, un scan de version a été effectué.
 
 Commande utilisée :
-```
+
+```bash
 nmap -sV 10.0.0.130
 ```
+
+![Détection des versions des services](../images/analyse-securite-serveur-debian/capture-03-nmap-detection-versions-services.png)
+
 Résultat :
 
-Service	Version
-SSH	OpenSSH 10.0p2
-HTTP	Apache 2.4.66
+| Service | Version        |
+| ------- | -------------- |
+| SSH     | OpenSSH 10.0p2 |
+| HTTP    | Apache 2.4.66  |
 
-Ces informations peuvent être utilisées par un attaquant pour rechercher des vulnérabilités connues.
+Ces informations peuvent être utilisées par un attaquant pour rechercher des vulnérabilités associées aux versions des services.
 
-4. Recherche de vulnérabilités
+---
 
-Nmap permet d’exécuter des scripts permettant de détecter certaines vulnérabilités connues.
+# Recherche de vulnérabilités
+
+Un scan de vulnérabilités a été réalisé à l’aide des scripts NSE de Nmap.
 
 Commande utilisée :
 
+```bash
 nmap --script vuln 10.0.0.130
+```
 
-Le scan n’a pas identifié de vulnérabilités critiques au niveau du serveur web.
+![Recherche de vulnérabilités](../images/analyse-securite-serveur-debian/capture-04-nmap-detection-vulnerabilites.png)
 
-5. Analyse du serveur web
+Le scan n’a pas identifié de vulnérabilités critiques sur les services exposés.
 
-Afin d’identifier les informations divulguées par le serveur web, une requête HTTP a été effectuée.
+---
+
+# Analyse du serveur web
+
+Une requête HTTP a été envoyée afin d’identifier les informations divulguées par le serveur web.
 
 Commande utilisée :
-```
+
+```bash
 curl -I http://10.0.0.130
 ```
-Le serveur divulgue l’information suivante :
 
+![Identification du serveur Apache](../images/analyse-securite-serveur-debian/capture-05-identification-serveur-web-apache.png)
+
+Le serveur retourne notamment l’information suivante :
+
+```
 Server: Apache/2.4.66 (Debian)
+```
 
-Cela constitue une divulgation d’informations, car un attaquant peut identifier précisément la version du serveur web.
+Cela constitue une **divulgation d’informations**, car la version du serveur web est visible.
 
-6. Vérification des services actifs côté serveur
+---
 
-La commande suivante permet d’identifier les services actuellement en écoute sur le serveur.
+# Vérification des services côté serveur
 
+La commande suivante permet d’identifier les services actifs sur le serveur.
+
+```bash
 ss -tulnp
+```
 
-Plusieurs services sont observés :
+![Services en écoute](../images/analyse-securite-serveur-debian/capture-06-verification-services-ecoute.png)
 
-SSH
+Cette vérification permet de comparer la configuration interne du serveur avec les résultats obtenus lors du scan réseau.
 
-HTTP
+---
 
-services applicatifs internes
+# Analyse des journaux
 
-Cette étape permet de vérifier la cohérence entre la configuration interne du serveur et les résultats obtenus lors du scan Nmap.
-
-7. Analyse des journaux système
-
-Les journaux du serveur permettent d’identifier les activités réseau et les tentatives d’accès.
+Les journaux du serveur ont été consultés afin d’identifier l’activité réseau.
 
 Commande utilisée :
 
+```bash
 tail -n 20 /var/log/apache2/access.log
+```
 
-Les logs montrent notamment des requêtes provenant de l’outil Nmap Scripting Engine, ce qui confirme qu’un scan de sécurité a été effectué sur le serveur.
+![Analyse des logs](../images/analyse-securite-serveur-debian/capture-07-analyse-logs-securite.png)
 
-Conclusion
+Les logs montrent notamment des requêtes provenant de l’outil **Nmap Scripting Engine**, ce qui confirme l’exécution d’un scan de sécurité sur le serveur.
 
-Cette analyse a permis d’identifier les éléments suivants :
+---
 
-Points positifs
+# Conclusion
 
-surface d’exposition réseau limitée
+Cette analyse de sécurité a permis d’identifier les services exposés et les informations divulguées par le serveur.
 
-peu de ports ouverts
+Points positifs :
 
-services identifiés
+* surface d’exposition réseau limitée
+* peu de ports ouverts
+* services identifiés
+* aucune vulnérabilité critique détectée
 
-aucune vulnérabilité critique détectée
+Points d’amélioration :
 
-Points d’amélioration
+* divulgation de la version du serveur Apache
+* exposition du service SSH aux attaques automatisées
+* nécessité de renforcer la configuration de sécurité du serveur
 
-divulgation de la version du serveur Apache
+Cette démarche permet de comprendre comment un serveur peut être analysé **du point de vue d’un attaquant**, ce qui constitue une étape essentielle dans un audit de sécurité.
 
-présence de services internes en écoute
+```
 
-exposition du serveur aux scans automatisés
+---
 
-Recommandations
+✅ Ce résumé est **parfait pour :**
 
-Plusieurs mesures peuvent être mises en place pour renforcer la sécurité du serveur :
+- ton **portfolio GitHub**
+- ton **dossier professionnel AIS**
+- montrer une **méthodologie pentest / audit sécurité**
 
-désactiver l’accès SSH pour l’utilisateur root
+---
 
-mettre en place une authentification par clé SSH
-
-masquer la version du serveur Apache
-
-déployer un pare-feu (UFW ou nftables)
-
-surveiller régulièrement les journaux système
-
-Conclusion générale
-
-Cette activité permet de comprendre comment un serveur peut être observé du point de vue d’un attaquant.
-
-La phase de reconnaissance constitue une étape essentielle dans un audit de sécurité, car elle permet d’identifier les services exposés et les informations pouvant être exploitées par un attaquant.
+Si tu veux, je peux aussi te montrer **une petite amélioration qui rend ce Markdown beaucoup plus professionnel visuellement sur GitHub** (table des matières automatique + badges + structure SOC). C’est exactement le genre de détail qui fait ressortir un profil cybersécurité.
+```
