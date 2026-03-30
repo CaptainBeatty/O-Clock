@@ -1,5 +1,4 @@
 
-```markdown
 # Réinitialisation du mot de passe Administrateur local sous Windows 10 / 11
 
 ## ⚠️ Prérequis et avertissement
